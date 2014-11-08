@@ -1,0 +1,527 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\zhjf\Desktop\RVMDK4.0\Project\Pro\template.uvproj
+Project File Date:  03/08/2013
+
+<h2>Output:</h2>
+Build target 'template'
+compiling stm32f10x_it.c...
+..\..\User\src\stm32f10x_it.c(139): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void SysTick_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(36): error:  #1268-D: declaration aliased to undefined entity "SysTickHandler"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void SysTick_Handler(void)    __attribute__ ((alias("SysTickHandler")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(130): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void PendSV_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(35): error:  #1268-D: declaration aliased to undefined entity "PendSVC"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void PendSV_Handler(void)     __attribute__ ((alias("PendSVC")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(112): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void SVC_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(34): error:  #1268-D: declaration aliased to undefined entity "SVCHandler"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void SVC_Handler(void)        __attribute__ ((alias("SVCHandler")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(121): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void DebugMon_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(33): error:  #1268-D: declaration aliased to undefined entity "DebugMonitor"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void DebugMon_Handler(void)   __attribute__ ((alias("DebugMonitor")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(99): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void UsageFault_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(32): error:  #1268-D: declaration aliased to undefined entity "UsageFaultException"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void UsageFault_Handler(void) __attribute__ ((alias("UsageFaultException")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(86): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void BusFault_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(31): error:  #1268-D: declaration aliased to undefined entity "BusFaultException"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void BusFault_Handler(void)   __attribute__ ((alias("BusFaultException")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(73): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void MemManage_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(30): error:  #1268-D: declaration aliased to undefined entity "MemManageException"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void MemManage_Handler(void)  __attribute__ ((alias("MemManageException")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(60): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void HardFault_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(29): error:  #1268-D: declaration aliased to undefined entity "HardFaultException"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void HardFault_Handler(void)  __attribute__ ((alias("HardFaultException")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+..\..\User\src\stm32f10x_it.c(51): error:  #1270: entity declared as alias cannot have definition
+..\..\User\src\stm32f10x_it.c:   void NMI_Handler(void)
+..\..\User\src\stm32f10x_it.c:        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h(28): error:  #1268-D: declaration aliased to undefined entity "NMIException"
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:   void NMI_Handler(void)        __attribute__ ((alias("NMIException")));
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h:                                                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_it.h: ..\..\User\src\stm32f10x_it.c: 0 warnings, 18 errors
+compiling main.c...
+compiling misc.c...
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c(24): error:  #5: cannot open source input file "misc.h": No such file or directory
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c:   #include "misc.h"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c: ..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c: 0 warnings, 1 error
+compiling stm32f10x_gpio.c...
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(175): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(176): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     uint32_t tmpreg = 0x00, pinmask = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(183): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                                                       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                                              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(189): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:       currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(193): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(198): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:         pos = ((uint32_t)0x01) << pinpos;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(205): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(212): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(219): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:               GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                         ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(233): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:         pos = (((uint32_t)0x01) << (pinpos + 0x08));
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                           ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(240): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(247): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(252): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:             GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(283): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     uint8_t bitstatus = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(289): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(289): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                                              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(291): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(291): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(295): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(295): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(297): warning:  #1166-D: returning pointer to local variable
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     return bitstatus;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(305): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(310): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(310): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:                       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c(320): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c:   ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c: ..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c: 1 warning, 30 errors
+compiling stm32f10x_rcc.c...
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(193): error:  #20: identifier "__I" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(193): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(194): error:  #20: identifier "__I" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(194): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(220): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR |= (uint32_t)0x00000001;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                 ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(220): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR |= (uint32_t)0x00000001;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(224): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CFGR &= (uint32_t)0xF8FF0000;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(230): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR &= (uint32_t)0xFEF6FFFF;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(233): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR &= (uint32_t)0xFFFBFFFF;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                          ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(236): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CFGR &= (uint32_t)0xFF80FFFF;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(270): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   void RCC_HSEConfig(uint32_t RCC_HSE)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(276): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEON_Reset;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(276): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEON_Reset;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(278): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEBYP_Reset;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(284): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEON_Set;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(289): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEBYP_Set | CR_HSEON_Set;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(289): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEBYP_Set | CR_HSEON_Set;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                                    ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(306): error:  #20: identifier "__IO" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     __IO uint32_t StartUpCounter = 0;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(306): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     __IO uint32_t StartUpCounter = 0;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                   ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(314): error:  #20: identifier "StartUpCounter" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:       StartUpCounter++;  
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(315): error:  #20: identifier "StartUpCounter" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     } while((StartUpCounter != HSE_STARTUP_TIMEOUT) && (HSEStatus == RESET));
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(315): error:  #20: identifier "HSE_STARTUP_TIMEOUT" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     } while((StartUpCounter != HSE_STARTUP_TIMEOUT) && (HSEStatus == RESET));
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(334): error:  #757: variable "uint8_t" is not a type name
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:   void RCC_AdjustHSICalibrationValue(uint8_t HSICalibrationValue)
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(336): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     uint32_t tmpreg = 0;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(341): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     tmpreg &= CR_HSITRIM_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(341): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     tmpreg &= CR_HSITRIM_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(343): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     tmpreg |= (uint32_t)HSICalibrationValue << 3;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                         ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(358): error:  #20: identifier "__IO" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(358): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c(358): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c:                                       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c: ..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c: 0 warnings, 30 errors
+compiling stm32f10x_usart.c...
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(178): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     uint32_t tmpreg = 0x00, apbclock = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(179): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     uint32_t integerdivider = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(180): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     uint32_t fractionaldivider = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(181): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     uint32_t usartxbase = 0;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(197): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     usartxbase = (uint32_t)USARTx;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                   ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(197): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     usartxbase = (uint32_t)USARTx;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                            ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(202): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR2_STOP_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(202): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR2_STOP_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(205): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                         ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(208): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     USARTx->CR2 = (uint16_t)tmpreg;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                             ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(213): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR1_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(218): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                         ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(221): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     USARTx->CR1 = (uint16_t)tmpreg;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                             ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(226): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR3_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(231): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     USARTx->CR3 = (uint16_t)tmpreg;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                             ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(264): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                                                              ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(264): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                                                                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(268): error:  #20: identifier "uint8_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                                                               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(268): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                                                                       ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(272): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     USARTx->BRR = (uint16_t)tmpreg;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                             ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(304): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     uint32_t tmpreg = 0x00;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(315): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR2_CLOCK_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(315): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg &= CR2_CLOCK_CLEAR_Mask;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:               ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(321): error:  #20: identifier "uint32_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(321): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                         ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(324): error:  #65: expected a ";"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:     USARTx->CR2 = (uint16_t)tmpreg;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                             ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(360): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       USARTx->CR1 |= CR1_UE_Set;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(360): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       USARTx->CR1 |= CR1_UE_Set;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(365): error:  #20: identifier "uint16_t" is undefined
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       USARTx->CR1 &= CR1_UE_Reset;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c(365): error:  #18: expected a ")"
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:       USARTx->CR1 &= CR1_UE_Reset;
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c:                      ^
+..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c: ..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c: 0 warnings, 30 errors
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(23): error:  #256: invalid redeclaration of type name "s32" (declared at line 312 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef signed long  s32;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                        ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(27): error:  #256: invalid redeclaration of type name "sc32" (declared at line 316 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef signed long  const sc32;  /* Read Only */
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                              ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(31): error:  #256: invalid redeclaration of type name "vs32" (declared at line 320 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef volatile signed long  vs32;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(35): error:  #256: invalid redeclaration of type name "vsc32" (declared at line 324 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef volatile signed long  const vsc32;  /* Read Only */
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                       ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(39): error:  #256: invalid redeclaration of type name "u32" (declared at line 328 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef unsigned long  u32;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                          ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(43): error:  #256: invalid redeclaration of type name "uc32" (declared at line 332 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef unsigned long  const uc32;  /* Read Only */
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(47): error:  #256: invalid redeclaration of type name "vu32" (declared at line 336 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef volatile unsigned long  vu32;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                   ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(51): error:  #256: invalid redeclaration of type name "vuc32" (declared at line 340 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef volatile unsigned long  const vuc32;  /* Read Only */
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                         ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(55): error:  #101: "FALSE" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {FALSE = 0, TRUE = !FALSE} bool;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(55): error:  #101: "TRUE" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {FALSE = 0, TRUE = !FALSE} bool;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                            ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(55): error:  #256: invalid redeclaration of type name "bool" (declared at line 345 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {FALSE = 0, TRUE = !FALSE} bool;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                           ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(57): error:  #101: "RESET" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(57): error:  #101: "SET" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                            ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(57): error:  #256: invalid redeclaration of type name "FlagStatus" (declared at line 348 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                          ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(57): error:  #256: invalid redeclaration of type name "ITStatus" (declared at line 348 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                                      ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(59): error:  #101: "DISABLE" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(59): error:  #101: "ENABLE" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                              ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(59): error:  #256: invalid redeclaration of type name "FunctionalState" (declared at line 350 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(62): error:  #101: "ERROR" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                 ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(62): error:  #101: "SUCCESS" has already been declared in the current scope
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                            ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h(62): error:  #256: invalid redeclaration of type name "ErrorStatus" (declared at line 353 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:   typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h:                                              ^
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h(147): warning:  #47-D: incompatible redefinition of macro "HSE_Value" (declared at line 85 of "C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h")
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h:   #define HSE_Value    ((u32)8000000) /* Value of the External oscillator in Hz*/
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h:           ^
+..\..\User\src\system_stm32f10x.c(267): error:  #20: identifier "FLASH_BASE" is undefined
+..\..\User\src\system_stm32f10x.c:     SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
+..\..\User\src\system_stm32f10x.c:                 ^
+..\..\User\src\system_stm32f10x.c(324): error:  #20: identifier "HSI_VALUE" is undefined
+..\..\User\src\system_stm32f10x.c:         SystemCoreClock = HSI_VALUE;
+..\..\User\src\system_stm32f10x.c:                           ^
+..\..\User\src\system_stm32f10x.c(327): error:  #20: identifier "HSE_VALUE" is undefined
+..\..\User\src\system_stm32f10x.c:         SystemCoreClock = HSE_VALUE;
+..\..\User\src\system_stm32f10x.c:                           ^
+..\..\User\src\system_stm32f10x.c(1000): error:  #20: identifier "HSE_STARTUP_TIMEOUT" is undefined
+..\..\User\src\system_stm32f10x.c:     } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+..\..\User\src\system_stm32f10x.c:                                                    ^
+..\..\User\src\system_stm32f10x.c: ..\..\User\src\system_stm32f10x.c: 1 warning, 25 errors
+Target not created
+Build target 'template'
+compiling stm32f10x_it.c...
+compiling main.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+linking...
+..\obj\template.axf: Error: L6218E: Undefined symbol main (referred from rtentry2.o).
+..\obj\template.axf: Not enough information to list image symbols.
+..\obj\template.axf: Finished: 1 information, 0 warning and 1 error messages.
+Target not created
+Build target 'template'
+compiling stm32f10x_it.c...
+compiling main.c...
+..\..\User\src\main.c(9): warning:  #1-D: last line of file ends without a newline
+..\..\User\src\main.c:   }
+..\..\User\src\main.c:    ^
+..\..\User\src\main.c: ..\..\User\src\main.c: 1 warning, 0 errors
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=848 RO-data=268 RW-data=20 ZI-data=1636  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 1 Warning(s).
+Build target 'template'
+compiling main.c...
+linking...
+Program Size: Code=848 RO-data=268 RW-data=20 ZI-data=1636  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 0 Warning(s).
+Build target 'template'
+compiling main.c...
+..\..\User\src\main.c(9): warning:  #1-D: last line of file ends without a newline
+..\..\User\src\main.c:   }
+..\..\User\src\main.c:    ^
+..\..\User\src\main.c: ..\..\User\src\main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=848 RO-data=268 RW-data=20 ZI-data=1636  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 1 Warning(s).
+Build target 'template'
+compiling main.c...
+linking...
+Program Size: Code=848 RO-data=268 RW-data=20 ZI-data=1636  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 0 Warning(s).
+Build target 'template'
+compiling main.c...
+..\..\User\src\main.c(6): warning:  #951-D: return type of function "main" must be "int"
+..\..\User\src\main.c:   void main()
+..\..\User\src\main.c:        ^
+..\..\User\src\main.c: ..\..\User\src\main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1796 RO-data=268 RW-data=40 ZI-data=1632  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 1 Warning(s).
+Build target 'template'
+compiling main.c...
+..\..\User\src\main.c(12): warning:  #111-D: statement is unreachable
+..\..\User\src\main.c:          return 0;
+..\..\User\src\main.c:          ^
+..\..\User\src\main.c: ..\..\User\src\main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1796 RO-data=268 RW-data=40 ZI-data=1632  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 1 Warning(s).
+Build target 'template'
+compiling main.c...
+linking...
+Program Size: Code=1796 RO-data=268 RW-data=40 ZI-data=1632  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 0 Warning(s).
+Build target 'template'
+compiling main.c...
+linking...
+Program Size: Code=2708 RO-data=268 RW-data=40 ZI-data=1632  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 0 Warning(s).
+Build target 'template'
+compiling main.c...
+linking...
+Program Size: Code=2708 RO-data=268 RW-data=40 ZI-data=1632  
+FromELF: creating hex file...
+"..\obj\template.axf" - 0 Error(s), 0 Warning(s).
