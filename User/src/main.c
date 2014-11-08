@@ -28,8 +28,8 @@ int main()
 		motor_up.INPWM_Uplimit = 2400;
 		motor_up.INPWM_Lowlimit = -2400;
 		motor_up.SampleTime = 1;
-		motorPID_up.Kp = 0.1;
-		motorPID_up.Ki = 0.002;
+		motorPID_up.Kp = 100;
+		motorPID_up.Ki = 0.1;
 		motorPID_up.Kd = 0;
 	
 	

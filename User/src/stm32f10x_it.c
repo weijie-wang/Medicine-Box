@@ -199,7 +199,20 @@ void SysTick_Handler(void)
 		/******************************* UP MOTOR VELOCITY CONTROL ***************************************/
 	
 		DetectVelocity(&motor_up , TIM3);
-	  TIM4->CCR1 = CalcSpeedPID(&motor_up , &motorPID_up);
+		temp = CalcSpeedPID(&motor_up , &motorPID_up);	
+		if(temp>=0)
+		{
+			temp = temp;
+			GPIO_SetBits(GPIOB, GPIO_Pin_12);
+			GPIO_ResetBits(GPIOB, GPIO_Pin_13);
+		}
+	  else
+		{
+			temp = -temp;
+			GPIO_SetBits(GPIOB, GPIO_Pin_13);
+			GPIO_ResetBits(GPIOB, GPIO_Pin_12);
+		}	
+	  TIM4->CCR1 = temp;
 		
 }
 

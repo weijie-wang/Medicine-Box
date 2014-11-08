@@ -53,11 +53,11 @@
 ;;;30     		motor_up.SampleTime = 1;
 000048  2001              MOVS     r0,#1
 00004a  6088              STR      r0,[r1,#8]  ; motor_up
-;;;31     		motorPID_up.Kp = 0.1;
+;;;31     		motorPID_up.Kp = 100;
 00004c  4828              LDR      r0,|L1.240|
 00004e  4923              LDR      r1,|L1.220|
 000050  6008              STR      r0,[r1,#0]  ; motorPID_up
-;;;32     		motorPID_up.Ki = 0.002;
+;;;32     		motorPID_up.Ki = 0.1;
 000052  4828              LDR      r0,|L1.244|
 000054  6048              STR      r0,[r1,#4]  ; motorPID_up
 ;;;33     		motorPID_up.Kd = 0;
@@ -76,11 +76,11 @@
 000066  2001              MOVS     r0,#1
 000068  6088              STR      r0,[r1,#8]  ; motor_down
 ;;;39     		motorPID_down.Kp = 100;
-00006a  4823              LDR      r0,|L1.248|
+00006a  4821              LDR      r0,|L1.240|
 00006c  491c              LDR      r1,|L1.224|
 00006e  6008              STR      r0,[r1,#0]  ; motorPID_down
 ;;;40     		motorPID_down.Ki = 0.1;
-000070  481f              LDR      r0,|L1.240|
+000070  4820              LDR      r0,|L1.244|
 000072  6048              STR      r0,[r1,#4]  ; motorPID_down
 ;;;41     		motorPID_down.Kd = 0;
 000074  2000              MOVS     r0,#0
@@ -91,11 +91,11 @@
 00007c  6091              STR      r1,[r2,#8]  ; position_down
 00007e  60d1              STR      r1,[r2,#0xc]  ; position_down
 ;;;43     		positionPID_down.Kp = 0.015;
-000080  481e              LDR      r0,|L1.252|
+000080  481d              LDR      r0,|L1.248|
 000082  4919              LDR      r1,|L1.232|
 000084  6008              STR      r0,[r1,#0]  ; positionPID_down
 ;;;44     		positionPID_down.Ki = 0.000001;
-000086  481e              LDR      r0,|L1.256|
+000086  481d              LDR      r0,|L1.252|
 000088  6048              STR      r0,[r1,#4]  ; positionPID_down
 ;;;45     		positionPID_down.Kd = 0;
 00008a  2000              MOVS     r0,#0
@@ -117,11 +117,11 @@
 ;;;55     		USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);//开启串口接收中断
 0000a2  2201              MOVS     r2,#1
 0000a4  f2405125          MOV      r1,#0x525
-0000a8  4816              LDR      r0,|L1.260|
+0000a8  4815              LDR      r0,|L1.256|
 0000aa  f7fffffe          BL       USART_ITConfig
 ;;;56     		USART_Cmd(USART1, ENABLE);
 0000ae  2101              MOVS     r1,#1
-0000b0  4814              LDR      r0,|L1.260|
+0000b0  4813              LDR      r0,|L1.256|
 0000b2  f7fffffe          BL       USART_Cmd
 ;;;57     	  SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;  //开系统定时中断
 0000b6  f04f20e0          MOV      r0,#0xe000e000
@@ -167,16 +167,14 @@
                   |L1.236|
                           DCD      n
                   |L1.240|
-                          DCD      0x3dcccccd
-                  |L1.244|
-                          DCD      0x3b03126f
-                  |L1.248|
                           DCD      0x42c80000
-                  |L1.252|
+                  |L1.244|
+                          DCD      0x3dcccccd
+                  |L1.248|
                           DCD      0x3c75c28f
-                  |L1.256|
+                  |L1.252|
                           DCD      0x358637bd
-                  |L1.260|
+                  |L1.256|
                           DCD      0x40013800
 
                           AREA ||.bss||, DATA, NOINIT, ALIGN=3

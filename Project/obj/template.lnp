@@ -1,8 +1,8 @@
 --cpu Cortex-M3
-"..\obj\stm32f10x_it.o"
 "..\obj\main.o"
 "..\obj\motion.o"
 "..\obj\stm32_config.o"
+"..\obj\stm32f10x_it.o"
 "..\obj\stm32f10x_exti.o"
 "..\obj\misc.o"
 "..\obj\stm32f10x_gpio.o"

@@ -31925,8 +31925,8 @@ N		motor_up.VelocityExpect = -20;
 N		motor_up.INPWM_Uplimit = 2400;
 N		motor_up.INPWM_Lowlimit = -2400;
 N		motor_up.SampleTime = 1;
-N		motorPID_up.Kp = 0.1;
-N		motorPID_up.Ki = 0.002;
+N		motorPID_up.Kp = 100;
+N		motorPID_up.Ki = 0.1;
 N		motorPID_up.Kd = 0;
 N	
 N	
