@@ -30827,6 +30827,8 @@ Nextern POSITION position_down;
 Nextern PIDPARA positionPID_down;
 Nextern int32_t n;
 Nextern uint8_t flag , down_flag , count_Up , count_Down;
+Nextern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
+Nextern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
 N
 N
 Nint DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);
@@ -31896,7 +31898,6 @@ Nvoid USART_Configuration(void);       //ÅäÖÃ´®¿Ú
 Nvoid Encoder_Configration(void);
 Nvoid TIM8_PWM_Output(void);
 N
-W "..\..\User\inc\stm32_config.h" 14 7 last line of file ends without a newline
 N#endif
 L 5 "..\..\User\src\main.c" 2
 N
@@ -31907,6 +31908,8 @@ NPOSITION position_up , position_down;
 NPIDPARA positionPID_up , positionPID_down;
 Nint32_t n;
 Nuint8_t flag , down_flag , count_Up , count_Down;
+Nuint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
+Nuint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
 N
 Nint main()
 N{    
@@ -31921,7 +31924,7 @@ N		memset(&positionPID_down,0,sizeof(PIDPARA));
 N	  n = 0;
 N		
 N	
-N		motor_up.VelocityExpect = -20;
+N		motor_up.VelocityExpect = 0;
 N		motor_up.INPWM_Uplimit = 2400;
 N		motor_up.INPWM_Lowlimit = -2400;
 N		motor_up.SampleTime = 1;
@@ -31973,5 +31976,5 @@ N
 N
 N
 N
-W "..\..\User\src\main.c" 76 9 last line of file ends without a newline
+W "..\..\User\src\main.c" 78 9 last line of file ends without a newline
 N								

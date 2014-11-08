@@ -405,11 +405,6 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
-              <FileName>stm32f10x_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\User\src\stm32f10x_it.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\src\main.c</FilePath>
@@ -423,6 +418,11 @@
               <FileName>stm32_config.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\src\stm32_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\src\stm32f10x_it.c</FilePath>
             </File>
           </Files>
         </Group>

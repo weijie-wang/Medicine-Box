@@ -143,6 +143,62 @@ void SysTick_Handler(void)
 {
 		int32_t temp ;
 	  int interval , i;
+
+
+		flag0 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
+	
+		if(flag0 == 0)                 //光电开关没有检测到药片
+    {
+			count_Up0 = 0;
+			count_Down0 ++;
+			if(count_Down0 > 5)
+      {
+				count_Down0 = 0;
+				down_flag0 = 0;           
+      }            
+    }       
+    else                 //光电开关检测到有药片
+    {
+			count_Up0 ++;
+			count_Down0 = 0;
+			if(count_Up0 > 5)
+      {
+				count_Up0 = 0;
+				if(down_flag0 == 0)
+				{
+					down_flag0 = 1;
+					motor_up.VelocityExpect -= 10;
+        }  
+		  }			
+    }
+		
+		flag1 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
+	
+		if(flag1 == 0)                 //光电开关没有检测到药片
+    {
+			count_Up1 = 0;
+			count_Down1 ++;
+			if(count_Down1 > 5)
+      {
+				count_Down1 = 0;
+				down_flag1 = 0;           
+      }            
+    }       
+    else                 //光电开关检测到有药片
+    {
+			count_Up1 ++;
+			count_Down1 = 0;
+			if(count_Up1 > 5)
+      {
+				count_Up1 = 0;
+				if(down_flag1 == 0)
+				{
+					down_flag1 = 1;
+					motor_up.VelocityExpect += 10;
+        }  
+		  }			
+    }
+ 
 		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
 	
 		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
@@ -176,7 +232,7 @@ void SysTick_Handler(void)
 		i = (long long)position_down.PositionCurrent / interval;
 		position_down.PositionCurrent -= i * interval;
 		n -= i;
-		interval = 3670;
+		interval = 3850;
 		position_down.PositionExpect = n * interval;
 		DetectVelocity(&motor_down , TIM2);
 		CalcPositionPID(&position_down , &positionPID_down , &motor_down);
@@ -248,7 +304,12 @@ void TIM1_CC_IRQHandler(void)
 
 void USART1_IRQHandler(void)
 {
-	
+	  uint8_t Rx,temp;
+    Rx = USART_ReceiveData(USART1);
+	  temp = Rx;
+	  Rx = (temp >> 4)*0x100 + (Rx & 0x0F);
+		motor_up.VelocityExpect = -Rx;
+	  USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 }
 
 /******************************************************************************/

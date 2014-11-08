@@ -71,6 +71,8 @@ extern POSITION position_down;
 extern PIDPARA positionPID_down;
 extern int32_t n;
 extern uint8_t flag , down_flag , count_Up , count_Down;
+extern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
+extern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
 
 
 int DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);

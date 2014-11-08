@@ -30899,6 +30899,8 @@ Nextern POSITION position_down;
 Nextern PIDPARA positionPID_down;
 Nextern int32_t n;
 Nextern uint8_t flag , down_flag , count_Up , count_Down;
+Nextern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
+Nextern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
 N
 N
 Nint DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);
@@ -31033,6 +31035,64 @@ Nvoid SysTick_Handler(void)
 N{
 N		int32_t temp ;
 N	  int interval , i;
+N
+N
+N		flag0 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
+X		flag0 = GPIO_ReadInputDataBit(((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x1000)),((uint16_t)0x0001));
+N	
+N		if(flag0 == 0)                 //光电开关没有检测到药片
+N    {
+N			count_Up0 = 0;
+N			count_Down0 ++;
+N			if(count_Down0 > 5)
+N      {
+N				count_Down0 = 0;
+N				down_flag0 = 0;           
+N      }            
+N    }       
+N    else                 //光电开关检测到有药片
+N    {
+N			count_Up0 ++;
+N			count_Down0 = 0;
+N			if(count_Up0 > 5)
+N      {
+N				count_Up0 = 0;
+N				if(down_flag0 == 0)
+N				{
+N					down_flag0 = 1;
+N					motor_up.VelocityExpect -= 10;
+N        }  
+N		  }			
+N    }
+N		
+N		flag1 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
+X		flag1 = GPIO_ReadInputDataBit(((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x1000)),((uint16_t)0x0004));
+N	
+N		if(flag1 == 0)                 //光电开关没有检测到药片
+N    {
+N			count_Up1 = 0;
+N			count_Down1 ++;
+N			if(count_Down1 > 5)
+N      {
+N				count_Down1 = 0;
+N				down_flag1 = 0;           
+N      }            
+N    }       
+N    else                 //光电开关检测到有药片
+N    {
+N			count_Up1 ++;
+N			count_Down1 = 0;
+N			if(count_Up1 > 5)
+N      {
+N				count_Up1 = 0;
+N				if(down_flag1 == 0)
+N				{
+N					down_flag1 = 1;
+N					motor_up.VelocityExpect += 10;
+N        }  
+N		  }			
+N    }
+N 
 N		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
 N	
 N		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
@@ -31067,7 +31127,7 @@ N
 N		i = (long long)position_down.PositionCurrent / interval;
 N		position_down.PositionCurrent -= i * interval;
 N		n -= i;
-N		interval = 3670;
+N		interval = 3850;
 N		position_down.PositionExpect = n * interval;
 N		DetectVelocity(&motor_down , TIM2);
 X		DetectVelocity(&motor_down , ((TIM_TypeDef *) (((uint32_t)0x40000000) + 0x0000)));
@@ -31151,7 +31211,14 @@ N}
 N
 Nvoid USART1_IRQHandler(void)
 N{
-N	
+N	  uint8_t Rx,temp;
+N    Rx = USART_ReceiveData(USART1);
+X    Rx = USART_ReceiveData(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)));
+N	  temp = Rx;
+N	  Rx = (temp >> 4)*0x100 + (Rx & 0x0F);
+N		motor_up.VelocityExpect = -Rx;
+N	  USART_ClearITPendingBit(USART1,USART_IT_RXNE);
+X	  USART_ClearITPendingBit(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)),((uint16_t)0x0525));
 N}
 N
 N/******************************************************************************/

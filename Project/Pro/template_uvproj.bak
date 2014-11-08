@@ -420,9 +420,9 @@
               <FilePath>..\..\User\src\motion.c</FilePath>
             </File>
             <File>
-              <FileName>variable.c</FileName>
+              <FileName>stm32_config.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\User\src\variable.c</FilePath>
+              <FilePath>..\..\User\src\stm32_config.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -121,8 +121,8 @@
 0000b6  4881              LDR      r0,|L1.700|
 0000b8  f7fffffe          BL       GPIO_Init
 ;;;35     
-;;;36       GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7;
-0000bc  20c0              MOVS     r0,#0xc0
+;;;36       GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_0|GPIO_Pin_2;
+0000bc  20c5              MOVS     r0,#0xc5
 0000be  f8ad0000          STRH     r0,[sp,#0]
 ;;;37       GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 0000c2  2003              MOVS     r0,#3

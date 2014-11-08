@@ -10,6 +10,8 @@ POSITION position_up , position_down;
 PIDPARA positionPID_up , positionPID_down;
 int32_t n;
 uint8_t flag , down_flag , count_Up , count_Down;
+uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
+uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
 
 int main()
 {    
@@ -24,7 +26,7 @@ int main()
 	  n = 0;
 		
 	
-		motor_up.VelocityExpect = -20;
+		motor_up.VelocityExpect = 0;
 		motor_up.INPWM_Uplimit = 2400;
 		motor_up.INPWM_Lowlimit = -2400;
 		motor_up.SampleTime = 1;

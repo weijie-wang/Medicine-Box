@@ -28821,7 +28821,6 @@ Nvoid USART_Configuration(void);       //ÅäÖÃ´®¿Ú
 Nvoid Encoder_Configration(void);
 Nvoid TIM8_PWM_Output(void);
 N
-W "..\..\User\inc\stm32_config.h" 14 7 last line of file ends without a newline
 N#endif
 L 2 "..\..\User\src\stm32_config.c" 2
 N
@@ -28865,8 +28864,8 @@ N  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 N  GPIO_Init(GPIOB, &GPIO_InitStructure);
 X  GPIO_Init(((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x0C00)), &GPIO_InitStructure);
 N
-N  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7;
-X  GPIO_InitStructure.GPIO_Pin = ((uint16_t)0x0040)|((uint16_t)0x0080);
+N  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_0|GPIO_Pin_2;
+X  GPIO_InitStructure.GPIO_Pin = ((uint16_t)0x0040)|((uint16_t)0x0080)|((uint16_t)0x0001)|((uint16_t)0x0004);
 N  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 N  GPIO_InitStructure.GPIO_Mode =  GPIO_Mode_IPD;
 N  GPIO_Init(GPIOC, &GPIO_InitStructure);
