@@ -5,175 +5,179 @@
                           AREA ||.text||, CODE, READONLY, ALIGN=2
 
                   main PROC
-;;;15     
-;;;16     int main()
+;;;22     
+;;;23     int main()
 000000  2120              MOVS     r1,#0x20
-;;;17     {    
-;;;18     
-;;;19     	
-;;;20     		memset(&motor_up,0,sizeof(MOTOR));
-000002  4833              LDR      r0,|L1.208|
+;;;24     {    
+;;;25     
+;;;26     	
+;;;27     		memset(&motor_up,0,sizeof(MOTOR));
+000002  4835              LDR      r0,|L1.216|
 000004  f7fffffe          BL       __aeabi_memclr4
-;;;21     		memset(&motor_down,0,sizeof(MOTOR));
+;;;28     		memset(&motor_down,0,sizeof(MOTOR));
 000008  2120              MOVS     r1,#0x20
-00000a  4832              LDR      r0,|L1.212|
+00000a  4834              LDR      r0,|L1.220|
 00000c  f7fffffe          BL       __aeabi_memclr4
-;;;22     		memset(&motorPID_up,0,sizeof(PIDPARA));
+;;;29     		memset(&motorPID_up,0,sizeof(PIDPARA));
 000010  211c              MOVS     r1,#0x1c
-000012  4831              LDR      r0,|L1.216|
+000012  4833              LDR      r0,|L1.224|
 000014  f7fffffe          BL       __aeabi_memclr4
-;;;23     		memset(&motorPID_down,0,sizeof(PIDPARA));
+;;;30     		memset(&motorPID_down,0,sizeof(PIDPARA));
 000018  211c              MOVS     r1,#0x1c
-00001a  4830              LDR      r0,|L1.220|
+00001a  4832              LDR      r0,|L1.228|
 00001c  f7fffffe          BL       __aeabi_memclr4
-;;;24     		memset(&position_down,0,sizeof(POSITION));
+;;;31     		memset(&position_down,0,sizeof(POSITION));
 000020  2118              MOVS     r1,#0x18
-000022  482f              LDR      r0,|L1.224|
+000022  4831              LDR      r0,|L1.232|
 000024  f7fffffe          BL       __aeabi_memclr4
-;;;25     		memset(&positionPID_down,0,sizeof(PIDPARA)); 
+;;;32     		memset(&positionPID_down,0,sizeof(PIDPARA)); 
 000028  211c              MOVS     r1,#0x1c
-00002a  482e              LDR      r0,|L1.228|
+00002a  4830              LDR      r0,|L1.236|
 00002c  f7fffffe          BL       __aeabi_memclr4
-;;;26     	  n = 0;
+;;;33     	  n = 0;
 000030  2000              MOVS     r0,#0
-000032  492d              LDR      r1,|L1.232|
+000032  492f              LDR      r1,|L1.240|
 000034  6008              STR      r0,[r1,#0]  ; n
-;;;27     		
-;;;28     	
-;;;29     		motor_up.VelocityExpect = 0;
-000036  4926              LDR      r1,|L1.208|
+;;;34     		
+;;;35     	
+;;;36     		motor_up.VelocityExpect = 0;
+000036  4928              LDR      r1,|L1.216|
 000038  60c8              STR      r0,[r1,#0xc]  ; motor_up
-;;;30     		motor_up.INPWM_Uplimit = 2400;
+;;;37     		motor_up.INPWM_Uplimit = 2400;
 00003a  f44f6016          MOV      r0,#0x960
 00003e  6188              STR      r0,[r1,#0x18]  ; motor_up
-;;;31     		motor_up.INPWM_Lowlimit = -2400;
+;;;38     		motor_up.INPWM_Lowlimit = -2400;
 000040  4240              RSBS     r0,r0,#0
 000042  61c8              STR      r0,[r1,#0x1c]  ; motor_up
-;;;32     		motor_up.SampleTime = 1;
+;;;39     		motor_up.SampleTime = 1;
 000044  2001              MOVS     r0,#1
 000046  6088              STR      r0,[r1,#8]  ; motor_up
-;;;33     		motorPID_up.Kp = 100;
-000048  4828              LDR      r0,|L1.236|
-00004a  4923              LDR      r1,|L1.216|
+;;;40     		motorPID_up.Kp = 100;
+000048  482a              LDR      r0,|L1.244|
+00004a  4925              LDR      r1,|L1.224|
 00004c  6008              STR      r0,[r1,#0]  ; motorPID_up
-;;;34     		motorPID_up.Ki = 0.1;
-00004e  4828              LDR      r0,|L1.240|
+;;;41     		motorPID_up.Ki = 0.1;
+00004e  482a              LDR      r0,|L1.248|
 000050  6048              STR      r0,[r1,#4]  ; motorPID_up
-;;;35     		motorPID_up.Kd = 0;
+;;;42     		motorPID_up.Kd = 0;
 000052  2000              MOVS     r0,#0
 000054  6088              STR      r0,[r1,#8]  ; motorPID_up
-;;;36     	
-;;;37     	
-;;;38     		motor_down.INPWM_Uplimit = 2400;
+;;;43     	
+;;;44     	
+;;;45     		motor_down.INPWM_Uplimit = 2400;
 000056  f44f6016          MOV      r0,#0x960
-00005a  491e              LDR      r1,|L1.212|
+00005a  4920              LDR      r1,|L1.220|
 00005c  6188              STR      r0,[r1,#0x18]  ; motor_down
-;;;39     		motor_down.INPWM_Lowlimit = -2400;
+;;;46     		motor_down.INPWM_Lowlimit = -2400;
 00005e  4240              RSBS     r0,r0,#0
 000060  61c8              STR      r0,[r1,#0x1c]  ; motor_down
-;;;40     		motor_down.SampleTime = 1;
+;;;47     		motor_down.SampleTime = 1;
 000062  2001              MOVS     r0,#1
 000064  6088              STR      r0,[r1,#8]  ; motor_down
-;;;41     		motorPID_down.Kp = 100;
-000066  4821              LDR      r0,|L1.236|
-000068  491c              LDR      r1,|L1.220|
+;;;48     		motorPID_down.Kp = 100;
+000066  4823              LDR      r0,|L1.244|
+000068  491e              LDR      r1,|L1.228|
 00006a  6008              STR      r0,[r1,#0]  ; motorPID_down
-;;;42     		motorPID_down.Ki = 0.1;
-00006c  4820              LDR      r0,|L1.240|
+;;;49     		motorPID_down.Ki = 0.1;
+00006c  4822              LDR      r0,|L1.248|
 00006e  6048              STR      r0,[r1,#4]  ; motorPID_down
-;;;43     		motorPID_down.Kd = 0;
+;;;50     		motorPID_down.Kd = 0;
 000070  2000              MOVS     r0,#0
 000072  6088              STR      r0,[r1,#8]  ; motorPID_down
-;;;44     		position_down.PositionCurrent = 0;
+;;;51     		position_down.PositionCurrent = 0;
 000074  2100              MOVS     r1,#0
-000076  4a1a              LDR      r2,|L1.224|
+000076  4a1c              LDR      r2,|L1.232|
 000078  6091              STR      r1,[r2,#8]  ; position_down
 00007a  60d1              STR      r1,[r2,#0xc]  ; position_down
-;;;45     		positionPID_down.Kp = 0.015;
-00007c  481d              LDR      r0,|L1.244|
-00007e  4919              LDR      r1,|L1.228|
+;;;52     		positionPID_down.Kp = 0.0150;
+00007c  481f              LDR      r0,|L1.252|
+00007e  491b              LDR      r1,|L1.236|
 000080  6008              STR      r0,[r1,#0]  ; positionPID_down
-;;;46     		positionPID_down.Ki = 0.000001;
-000082  481d              LDR      r0,|L1.248|
+;;;53     		positionPID_down.Ki = 0.0000001;
+000082  481f              LDR      r0,|L1.256|
 000084  6048              STR      r0,[r1,#4]  ; positionPID_down
-;;;47     		positionPID_down.Kd = 0;
-000086  2000              MOVS     r0,#0
-000088  6088              STR      r0,[r1,#8]  ; positionPID_down
-;;;48     		
-;;;49     	
-;;;50     	
-;;;51     	
-;;;52     	  RCC_Configuration();
-00008a  f7fffffe          BL       RCC_Configuration
-;;;53     	  GPIO_Configuration();
-00008e  f7fffffe          BL       GPIO_Configuration
-;;;54     		SysTick_Init();
-000092  f7fffffe          BL       SysTick_Init
-;;;55     		USART_Configuration();	
-000096  f7fffffe          BL       USART_Configuration
-;;;56     		NVIC_Configuration();
-00009a  f7fffffe          BL       NVIC_Configuration
-;;;57     		USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);//开启串口接收中断
-00009e  2201              MOVS     r2,#1
-0000a0  f2405125          MOV      r1,#0x525
-0000a4  4815              LDR      r0,|L1.252|
-0000a6  f7fffffe          BL       USART_ITConfig
-;;;58     		USART_Cmd(USART1, ENABLE);
-0000aa  2101              MOVS     r1,#1
-0000ac  4813              LDR      r0,|L1.252|
-0000ae  f7fffffe          BL       USART_Cmd
-;;;59     	  SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;  //开系统定时中断
-0000b2  f04f20e0          MOV      r0,#0xe000e000
-0000b6  6900              LDR      r0,[r0,#0x10]
-0000b8  f0400001          ORR      r0,r0,#1
-0000bc  f04f21e0          MOV      r1,#0xe000e000
-0000c0  6108              STR      r0,[r1,#0x10]
-;;;60     		Encoder_Configration();
-0000c2  f7fffffe          BL       Encoder_Configration
-;;;61     		TIM8_PWM_Output();
-0000c6  f7fffffe          BL       TIM8_PWM_Output
-;;;62     							  	
-;;;63     
-;;;64     
-;;;65     	while(1)
-0000ca  bf00              NOP      
-                  |L1.204|
-0000cc  e7fe              B        |L1.204|
-;;;66     	{	
-;;;67     		
-;;;68     			
-;;;69     	}	
+;;;54     		positionPID_down.Kd = 0.5;
+000086  f04f507c          MOV      r0,#0x3f000000
+00008a  6088              STR      r0,[r1,#8]  ; positionPID_down
+;;;55     		
+;;;56     		interval = 11810;
+00008c  f6426022          MOV      r0,#0x2e22
+000090  491c              LDR      r1,|L1.260|
+000092  6008              STR      r0,[r1,#0]  ; interval
+;;;57     	
+;;;58     	
+;;;59     	  RCC_Configuration();
+000094  f7fffffe          BL       RCC_Configuration
+;;;60     	  GPIO_Configuration();
+000098  f7fffffe          BL       GPIO_Configuration
+;;;61     		SysTick_Init();
+00009c  f7fffffe          BL       SysTick_Init
+;;;62     		USART_Configuration();	
+0000a0  f7fffffe          BL       USART_Configuration
+;;;63     		NVIC_Configuration();
+0000a4  f7fffffe          BL       NVIC_Configuration
+;;;64     		USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);//开启串口接收中断
+0000a8  2201              MOVS     r2,#1
+0000aa  f2405125          MOV      r1,#0x525
+0000ae  4816              LDR      r0,|L1.264|
+0000b0  f7fffffe          BL       USART_ITConfig
+;;;65     		USART_Cmd(USART1, ENABLE);
+0000b4  2101              MOVS     r1,#1
+0000b6  4814              LDR      r0,|L1.264|
+0000b8  f7fffffe          BL       USART_Cmd
+;;;66     	  SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;  //开系统定时中断
+0000bc  f04f20e0          MOV      r0,#0xe000e000
+0000c0  6900              LDR      r0,[r0,#0x10]
+0000c2  f0400001          ORR      r0,r0,#1
+0000c6  f04f21e0          MOV      r1,#0xe000e000
+0000ca  6108              STR      r0,[r1,#0x10]
+;;;67     		Encoder_Configration();
+0000cc  f7fffffe          BL       Encoder_Configration
+;;;68     		TIM8_PWM_Output();
+0000d0  f7fffffe          BL       TIM8_PWM_Output
+;;;69     							  	
 ;;;70     
-;;;71        
-;;;72     
-;;;73     }
-;;;74     
+;;;71     
+;;;72     	while(1)
+0000d4  bf00              NOP      
+                  |L1.214|
+0000d6  e7fe              B        |L1.214|
+;;;73     	{	
+;;;74     		
+;;;75     			
+;;;76     	}	
+;;;77     
+;;;78        
+;;;79     
+;;;80     }
+;;;81     
                           ENDP
 
-0000ce  0000              DCW      0x0000
-                  |L1.208|
-                          DCD      motor_up
-                  |L1.212|
-                          DCD      motor_down
                   |L1.216|
-                          DCD      motorPID_up
+                          DCD      motor_up
                   |L1.220|
-                          DCD      motorPID_down
+                          DCD      motor_down
                   |L1.224|
-                          DCD      position_down
+                          DCD      motorPID_up
                   |L1.228|
-                          DCD      positionPID_down
+                          DCD      motorPID_down
                   |L1.232|
-                          DCD      n
+                          DCD      position_down
                   |L1.236|
-                          DCD      0x42c80000
+                          DCD      positionPID_down
                   |L1.240|
-                          DCD      0x3dcccccd
+                          DCD      n
                   |L1.244|
-                          DCD      0x3c75c28f
+                          DCD      0x42c80000
                   |L1.248|
-                          DCD      0x358637bd
+                          DCD      0x3dcccccd
                   |L1.252|
+                          DCD      0x3c75c28f
+                  |L1.256|
+                          DCD      0x33d6bf95
+                  |L1.260|
+                          DCD      interval
+                  |L1.264|
                           DCD      0x40013800
 
                           AREA ||.bss||, DATA, NOINIT, ALIGN=3
@@ -194,34 +198,46 @@
                           %        28
                   positionPID_down
                           %        28
+                  RxBuffer
+                          %        12
+                  RxRcv
+                          %        12
 
                           AREA ||.data||, DATA, ALIGN=2
 
                   n
                           DCD      0x00000000
+                  m
+                          DCD      0x00000000
                   flag
-000004  00                DCB      0x00
-                  down_flag
-000005  00                DCB      0x00
-                  count_Up
-000006  00                DCB      0x00
-                  count_Down
-000007  00                DCB      0x00
-                  flag0
 000008  00                DCB      0x00
-                  down_flag0
+                  down_flag
 000009  00                DCB      0x00
-                  count_Up0
+                  count_Up
 00000a  00                DCB      0x00
-                  count_Down0
+                  count_Down
 00000b  00                DCB      0x00
-                  flag1
+                  flag0
 00000c  00                DCB      0x00
-                  down_flag1
+                  down_flag0
 00000d  00                DCB      0x00
-                  count_Up1
+                  count_Up0
 00000e  00                DCB      0x00
-                  count_Down1
+                  count_Down0
 00000f  00                DCB      0x00
+                  flag1
+000010  00                DCB      0x00
+                  down_flag1
+000011  00                DCB      0x00
+                  count_Up1
+000012  00                DCB      0x00
+                  count_Down1
+000013  00                DCB      0x00
+                  interval
+                          DCD      0x00000000
+                  med_num
+                          DCD      0x00000001
+                  cell_num
+                          DCD      0x00000001
 
                   __ARM_use_no_argv EQU 0

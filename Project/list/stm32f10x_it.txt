@@ -106,14 +106,14 @@
 000018  e92d47f0          PUSH     {r4-r10,lr}
 ;;;143    {
 ;;;144    		int32_t temp ;
-;;;145    	  int interval , i;
+;;;145    	  int i;
 ;;;146    
 ;;;147    
 ;;;148    		flag0 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
 00001c  2101              MOVS     r1,#1
-00001e  4897              LDR      r0,|L1.636|
+00001e  48fe              LDR      r0,|L1.1048|
 000020  f7fffffe          BL       GPIO_ReadInputDataBit
-000024  4996              LDR      r1,|L1.640|
+000024  49fd              LDR      r1,|L1.1052|
 000026  7008              STRB     r0,[r1,#0]
 ;;;149    	
 ;;;150    		if(flag0 == 0)                 //光电开关没有检测到药片
@@ -123,13 +123,13 @@
 ;;;151        {
 ;;;152    			count_Up0 = 0;
 00002e  2000              MOVS     r0,#0
-000030  4994              LDR      r1,|L1.644|
+000030  49fb              LDR      r1,|L1.1056|
 000032  7008              STRB     r0,[r1,#0]
 ;;;153    			count_Down0 ++;
-000034  4894              LDR      r0,|L1.648|
+000034  48fb              LDR      r0,|L1.1060|
 000036  7800              LDRB     r0,[r0,#0]  ; count_Down0
 000038  1c40              ADDS     r0,r0,#1
-00003a  4993              LDR      r1,|L1.648|
+00003a  49fa              LDR      r1,|L1.1060|
 00003c  7008              STRB     r0,[r1,#0]
 ;;;154    			if(count_Down0 > 5)
 00003e  4608              MOV      r0,r1
@@ -141,7 +141,7 @@
 000046  2000              MOVS     r0,#0
 000048  7008              STRB     r0,[r1,#0]
 ;;;157    				down_flag0 = 0;           
-00004a  4990              LDR      r1,|L1.652|
+00004a  49f7              LDR      r1,|L1.1064|
 00004c  7008              STRB     r0,[r1,#0]
 00004e  e019              B        |L1.132|
                   |L1.80|
@@ -150,39 +150,39 @@
 ;;;160        else                 //光电开关检测到有药片
 ;;;161        {
 ;;;162    			count_Up0 ++;
-000050  488c              LDR      r0,|L1.644|
+000050  48f3              LDR      r0,|L1.1056|
 000052  7800              LDRB     r0,[r0,#0]  ; count_Up0
 000054  1c40              ADDS     r0,r0,#1
-000056  498b              LDR      r1,|L1.644|
+000056  49f2              LDR      r1,|L1.1056|
 000058  7008              STRB     r0,[r1,#0]
 ;;;163    			count_Down0 = 0;
 00005a  2000              MOVS     r0,#0
-00005c  498a              LDR      r1,|L1.648|
+00005c  49f1              LDR      r1,|L1.1060|
 00005e  7008              STRB     r0,[r1,#0]
 ;;;164    			if(count_Up0 > 5)
-000060  4888              LDR      r0,|L1.644|
+000060  48ef              LDR      r0,|L1.1056|
 000062  7800              LDRB     r0,[r0,#0]  ; count_Up0
 000064  2805              CMP      r0,#5
 000066  dd0d              BLE      |L1.132|
 ;;;165          {
 ;;;166    				count_Up0 = 0;
 000068  2000              MOVS     r0,#0
-00006a  4986              LDR      r1,|L1.644|
+00006a  49ed              LDR      r1,|L1.1056|
 00006c  7008              STRB     r0,[r1,#0]
 ;;;167    				if(down_flag0 == 0)
-00006e  4887              LDR      r0,|L1.652|
+00006e  48ee              LDR      r0,|L1.1064|
 000070  7800              LDRB     r0,[r0,#0]  ; down_flag0
 000072  b938              CBNZ     r0,|L1.132|
 ;;;168    				{
 ;;;169    					down_flag0 = 1;
 000074  2001              MOVS     r0,#1
-000076  4985              LDR      r1,|L1.652|
+000076  49ec              LDR      r1,|L1.1064|
 000078  7008              STRB     r0,[r1,#0]
 ;;;170    					motor_up.VelocityExpect -= 10;
-00007a  4885              LDR      r0,|L1.656|
+00007a  48ec              LDR      r0,|L1.1068|
 00007c  68c0              LDR      r0,[r0,#0xc]  ; motor_up
 00007e  380a              SUBS     r0,r0,#0xa
-000080  4983              LDR      r1,|L1.656|
+000080  49ea              LDR      r1,|L1.1068|
 000082  60c8              STR      r0,[r1,#0xc]  ; motor_up
                   |L1.132|
 ;;;171            }  
@@ -191,9 +191,9 @@
 ;;;174    		
 ;;;175    		flag1 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
 000084  2104              MOVS     r1,#4
-000086  487d              LDR      r0,|L1.636|
+000086  48e4              LDR      r0,|L1.1048|
 000088  f7fffffe          BL       GPIO_ReadInputDataBit
-00008c  4981              LDR      r1,|L1.660|
+00008c  49e8              LDR      r1,|L1.1072|
 00008e  7008              STRB     r0,[r1,#0]
 ;;;176    	
 ;;;177    		if(flag1 == 0)                 //光电开关没有检测到药片
@@ -203,13 +203,13 @@
 ;;;178        {
 ;;;179    			count_Up1 = 0;
 000096  2000              MOVS     r0,#0
-000098  497f              LDR      r1,|L1.664|
+000098  49e6              LDR      r1,|L1.1076|
 00009a  7008              STRB     r0,[r1,#0]
 ;;;180    			count_Down1 ++;
-00009c  487f              LDR      r0,|L1.668|
+00009c  48e6              LDR      r0,|L1.1080|
 00009e  7800              LDRB     r0,[r0,#0]  ; count_Down1
 0000a0  1c40              ADDS     r0,r0,#1
-0000a2  497e              LDR      r1,|L1.668|
+0000a2  49e5              LDR      r1,|L1.1080|
 0000a4  7008              STRB     r0,[r1,#0]
 ;;;181    			if(count_Down1 > 5)
 0000a6  4608              MOV      r0,r1
@@ -221,7 +221,7 @@
 0000ae  2000              MOVS     r0,#0
 0000b0  7008              STRB     r0,[r1,#0]
 ;;;184    				down_flag1 = 0;           
-0000b2  497b              LDR      r1,|L1.672|
+0000b2  49e2              LDR      r1,|L1.1084|
 0000b4  7008              STRB     r0,[r1,#0]
 0000b6  e019              B        |L1.236|
                   |L1.184|
@@ -230,386 +230,817 @@
 ;;;187        else                 //光电开关检测到有药片
 ;;;188        {
 ;;;189    			count_Up1 ++;
-0000b8  4877              LDR      r0,|L1.664|
+0000b8  48de              LDR      r0,|L1.1076|
 0000ba  7800              LDRB     r0,[r0,#0]  ; count_Up1
 0000bc  1c40              ADDS     r0,r0,#1
-0000be  4976              LDR      r1,|L1.664|
+0000be  49dd              LDR      r1,|L1.1076|
 0000c0  7008              STRB     r0,[r1,#0]
 ;;;190    			count_Down1 = 0;
 0000c2  2000              MOVS     r0,#0
-0000c4  4975              LDR      r1,|L1.668|
+0000c4  49dc              LDR      r1,|L1.1080|
 0000c6  7008              STRB     r0,[r1,#0]
 ;;;191    			if(count_Up1 > 5)
-0000c8  4873              LDR      r0,|L1.664|
+0000c8  48da              LDR      r0,|L1.1076|
 0000ca  7800              LDRB     r0,[r0,#0]  ; count_Up1
 0000cc  2805              CMP      r0,#5
 0000ce  dd0d              BLE      |L1.236|
 ;;;192          {
 ;;;193    				count_Up1 = 0;
 0000d0  2000              MOVS     r0,#0
-0000d2  4971              LDR      r1,|L1.664|
+0000d2  49d8              LDR      r1,|L1.1076|
 0000d4  7008              STRB     r0,[r1,#0]
 ;;;194    				if(down_flag1 == 0)
-0000d6  4872              LDR      r0,|L1.672|
+0000d6  48d9              LDR      r0,|L1.1084|
 0000d8  7800              LDRB     r0,[r0,#0]  ; down_flag1
 0000da  b938              CBNZ     r0,|L1.236|
 ;;;195    				{
 ;;;196    					down_flag1 = 1;
 0000dc  2001              MOVS     r0,#1
-0000de  4970              LDR      r1,|L1.672|
+0000de  49d7              LDR      r1,|L1.1084|
 0000e0  7008              STRB     r0,[r1,#0]
 ;;;197    					motor_up.VelocityExpect += 10;
-0000e2  486b              LDR      r0,|L1.656|
+0000e2  48d2              LDR      r0,|L1.1068|
 0000e4  68c0              LDR      r0,[r0,#0xc]  ; motor_up
 0000e6  300a              ADDS     r0,r0,#0xa
-0000e8  4969              LDR      r1,|L1.656|
+0000e8  49d0              LDR      r1,|L1.1068|
 0000ea  60c8              STR      r0,[r1,#0xc]  ; motor_up
                   |L1.236|
 ;;;198            }  
 ;;;199    		  }			
 ;;;200        }
-;;;201     
-;;;202    		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
-;;;203    	
-;;;204    		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
+;;;201    		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
+;;;202    	
+;;;203    		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
 0000ec  2140              MOVS     r1,#0x40
-0000ee  4863              LDR      r0,|L1.636|
+0000ee  48ca              LDR      r0,|L1.1048|
 0000f0  f7fffffe          BL       GPIO_ReadInputDataBit
-0000f4  496b              LDR      r1,|L1.676|
+0000f4  49d2              LDR      r1,|L1.1088|
 0000f6  7008              STRB     r0,[r1,#0]
-;;;205    	
-;;;206    		if(flag == 0)                 //光电开关没有检测到药片
+;;;204    	
+;;;205    		if(flag == 0)                 //光电开关没有检测到药片
 0000f8  4608              MOV      r0,r1
 0000fa  7800              LDRB     r0,[r0,#0]  ; flag
 0000fc  b980              CBNZ     r0,|L1.288|
-;;;207        {
-;;;208    			count_Up = 0;
+;;;206        {
+;;;207    			count_Up = 0;
 0000fe  2000              MOVS     r0,#0
-000100  4969              LDR      r1,|L1.680|
+000100  49d0              LDR      r1,|L1.1092|
 000102  7008              STRB     r0,[r1,#0]
-;;;209    			count_Down ++;
-000104  4869              LDR      r0,|L1.684|
+;;;208    			count_Down ++;
+000104  48d0              LDR      r0,|L1.1096|
 000106  7800              LDRB     r0,[r0,#0]  ; count_Down
 000108  1c40              ADDS     r0,r0,#1
-00010a  4968              LDR      r1,|L1.684|
+00010a  49cf              LDR      r1,|L1.1096|
 00010c  7008              STRB     r0,[r1,#0]
-;;;210    			if(count_Down > 5)
+;;;209    			if(count_Down > 5)
 00010e  4608              MOV      r0,r1
 000110  7800              LDRB     r0,[r0,#0]  ; count_Down
 000112  2805              CMP      r0,#5
-000114  dd1e              BLE      |L1.340|
-;;;211          {
-;;;212    				count_Down = 0;
+000114  dd2e              BLE      |L1.372|
+;;;210          {
+;;;211    				count_Down = 0;
 000116  2000              MOVS     r0,#0
 000118  7008              STRB     r0,[r1,#0]
-;;;213    				down_flag = 0;           
-00011a  4965              LDR      r1,|L1.688|
+;;;212    				down_flag = 0;           
+00011a  49cc              LDR      r1,|L1.1100|
 00011c  7008              STRB     r0,[r1,#0]
-00011e  e019              B        |L1.340|
+00011e  e029              B        |L1.372|
                   |L1.288|
-;;;214          }            
-;;;215        }       
-;;;216        else                 //光电开关检测到有药片
-;;;217        {
-;;;218    			count_Up ++;
-000120  4861              LDR      r0,|L1.680|
+;;;213          }            
+;;;214        }       
+;;;215        else                 //光电开关检测到有药片
+;;;216        {
+;;;217    			count_Up ++;
+000120  48c8              LDR      r0,|L1.1092|
 000122  7800              LDRB     r0,[r0,#0]  ; count_Up
 000124  1c40              ADDS     r0,r0,#1
-000126  4960              LDR      r1,|L1.680|
+000126  49c7              LDR      r1,|L1.1092|
 000128  7008              STRB     r0,[r1,#0]
-;;;219    			count_Down = 0;
+;;;218    			count_Down = 0;
 00012a  2000              MOVS     r0,#0
-00012c  495f              LDR      r1,|L1.684|
+00012c  49c6              LDR      r1,|L1.1096|
 00012e  7008              STRB     r0,[r1,#0]
-;;;220    			if(count_Up > 5)
-000130  485d              LDR      r0,|L1.680|
+;;;219    			if(count_Up > 5)
+000130  48c4              LDR      r0,|L1.1092|
 000132  7800              LDRB     r0,[r0,#0]  ; count_Up
 000134  2805              CMP      r0,#5
-000136  dd0d              BLE      |L1.340|
-;;;221          {
-;;;222    				count_Up = 0;
+000136  dd1d              BLE      |L1.372|
+;;;220          {
+;;;221    				count_Up = 0;
 000138  2000              MOVS     r0,#0
-00013a  495b              LDR      r1,|L1.680|
+00013a  49c2              LDR      r1,|L1.1092|
 00013c  7008              STRB     r0,[r1,#0]
-;;;223    				if(down_flag == 0)
-00013e  485c              LDR      r0,|L1.688|
+;;;222    				if(down_flag == 0)
+00013e  48c3              LDR      r0,|L1.1100|
 000140  7800              LDRB     r0,[r0,#0]  ; down_flag
-000142  b938              CBNZ     r0,|L1.340|
-;;;224    				{
-;;;225    					down_flag = 1;
+000142  b9b8              CBNZ     r0,|L1.372|
+;;;223    				{
+;;;224    					down_flag = 1;
 000144  2001              MOVS     r0,#1
-000146  495a              LDR      r1,|L1.688|
+000146  49c1              LDR      r1,|L1.1100|
 000148  7008              STRB     r0,[r1,#0]
-;;;226    					n++;
-00014a  485a              LDR      r0,|L1.692|
+;;;225    					n++;
+00014a  48c1              LDR      r0,|L1.1104|
 00014c  6800              LDR      r0,[r0,#0]  ; n
 00014e  1c40              ADDS     r0,r0,#1
-000150  4958              LDR      r1,|L1.692|
+000150  49bf              LDR      r1,|L1.1104|
 000152  6008              STR      r0,[r1,#0]  ; n
-                  |L1.340|
-;;;227            }  
-;;;228    		  }			
-;;;229        }
-;;;230    		
-;;;231    		
-;;;232    		i = (long long)position_down.PositionCurrent / interval;
-000154  4858              LDR      r0,|L1.696|
-000156  e9d02102          LDRD     r2,r1,[r0,#8]
-00015a  4610              MOV      r0,r2
-00015c  f7fffffe          BL       __aeabi_d2lz
-000160  4606              MOV      r6,r0
-000162  462a              MOV      r2,r5
-000164  17eb              ASRS     r3,r5,#31
-000166  f7fffffe          BL       __aeabi_ldivmod
-00016a  4680              MOV      r8,r0
-;;;233    		position_down.PositionCurrent -= i * interval;
-00016c  fb08f005          MUL      r0,r8,r5
-000170  f7fffffe          BL       __aeabi_i2d
-000174  4681              MOV      r9,r0
-000176  4850              LDR      r0,|L1.696|
-000178  e9d06302          LDRD     r6,r3,[r0,#8]
-00017c  4632              MOV      r2,r6
-00017e  4648              MOV      r0,r9
-000180  f7fffffe          BL       __aeabi_drsub
-000184  4a4c              LDR      r2,|L1.696|
-000186  e9c20102          STRD     r0,r1,[r2,#8]
-;;;234    		n -= i;
-00018a  484a              LDR      r0,|L1.692|
-00018c  6800              LDR      r0,[r0,#0]  ; n
-00018e  eba00008          SUB      r0,r0,r8
-000192  4948              LDR      r1,|L1.692|
-000194  6008              STR      r0,[r1,#0]  ; n
-;;;235    		interval = 3850;
-000196  f640750a          MOV      r5,#0xf0a
-;;;236    		position_down.PositionExpect = n * interval;
-00019a  6809              LDR      r1,[r1,#0]  ; n
-00019c  fb01f005          MUL      r0,r1,r5
-0001a0  f7fffffe          BL       __aeabi_i2d
-0001a4  4a44              LDR      r2,|L1.696|
-0001a6  c203              STM      r2!,{r0,r1}
-;;;237    		DetectVelocity(&motor_down , TIM2);
-0001a8  0769              LSLS     r1,r5,#29
-0001aa  4844              LDR      r0,|L1.700|
-0001ac  f7fffffe          BL       DetectVelocity
-;;;238    		CalcPositionPID(&position_down , &positionPID_down , &motor_down);
-0001b0  4a42              LDR      r2,|L1.700|
-0001b2  4943              LDR      r1,|L1.704|
-0001b4  4840              LDR      r0,|L1.696|
-0001b6  f7fffffe          BL       CalcPositionPID
-;;;239    		temp = CalcSpeedPID(&motor_down , &motorPID_down);	
-0001ba  4942              LDR      r1,|L1.708|
-0001bc  483f              LDR      r0,|L1.700|
-0001be  f7fffffe          BL       CalcSpeedPID
-0001c2  4604              MOV      r4,r0
-;;;240    		if(temp>=0)
-0001c4  2c00              CMP      r4,#0
-0001c6  db0b              BLT      |L1.480|
-;;;241    		{
-;;;242    			temp = temp;
-0001c8  bf00              NOP      
-;;;243    			GPIO_SetBits(GPIOB, GPIO_Pin_10);
-0001ca  f44f6180          MOV      r1,#0x400
-0001ce  483e              LDR      r0,|L1.712|
-0001d0  f7fffffe          BL       GPIO_SetBits
-;;;244    			GPIO_ResetBits(GPIOB, GPIO_Pin_11);
-0001d4  f44f6100          MOV      r1,#0x800
-0001d8  483b              LDR      r0,|L1.712|
-0001da  f7fffffe          BL       GPIO_ResetBits
-0001de  e00a              B        |L1.502|
-                  |L1.480|
-;;;245    		}
-;;;246    	  else
-;;;247    		{
-;;;248    			temp = -temp;
-0001e0  4264              RSBS     r4,r4,#0
-;;;249    			GPIO_SetBits(GPIOB, GPIO_Pin_11);
-0001e2  f44f6100          MOV      r1,#0x800
-0001e6  4838              LDR      r0,|L1.712|
-0001e8  f7fffffe          BL       GPIO_SetBits
-;;;250    			GPIO_ResetBits(GPIOB, GPIO_Pin_10);
-0001ec  f44f6180          MOV      r1,#0x400
-0001f0  4835              LDR      r0,|L1.712|
-0001f2  f7fffffe          BL       GPIO_ResetBits
-                  |L1.502|
-;;;251    		}
-;;;252    	  TIM4->CCR2 = temp;
-0001f6  4935              LDR      r1,|L1.716|
-0001f8  800c              STRH     r4,[r1,#0]
-;;;253    		
-;;;254    		
-;;;255    		/******************************* UP MOTOR VELOCITY CONTROL ***************************************/
-;;;256    	
-;;;257    		DetectVelocity(&motor_up , TIM3);
-0001fa  4935              LDR      r1,|L1.720|
-0001fc  4824              LDR      r0,|L1.656|
-0001fe  f7fffffe          BL       DetectVelocity
-;;;258    		temp = CalcSpeedPID(&motor_up , &motorPID_up);	
-000202  4934              LDR      r1,|L1.724|
-000204  4822              LDR      r0,|L1.656|
-000206  f7fffffe          BL       CalcSpeedPID
-00020a  4604              MOV      r4,r0
-;;;259    		if(temp>=0)
-00020c  2c00              CMP      r4,#0
-00020e  db0b              BLT      |L1.552|
-;;;260    		{
-;;;261    			temp = temp;
-000210  bf00              NOP      
-;;;262    			GPIO_SetBits(GPIOB, GPIO_Pin_12);
-000212  f44f5180          MOV      r1,#0x1000
-000216  482c              LDR      r0,|L1.712|
-000218  f7fffffe          BL       GPIO_SetBits
-;;;263    			GPIO_ResetBits(GPIOB, GPIO_Pin_13);
-00021c  f44f5100          MOV      r1,#0x2000
-000220  4829              LDR      r0,|L1.712|
-000222  f7fffffe          BL       GPIO_ResetBits
-000226  e00a              B        |L1.574|
-                  |L1.552|
-;;;264    		}
-;;;265    	  else
-;;;266    		{
-;;;267    			temp = -temp;
-000228  4264              RSBS     r4,r4,#0
-;;;268    			GPIO_SetBits(GPIOB, GPIO_Pin_13);
-00022a  f44f5100          MOV      r1,#0x2000
-00022e  4826              LDR      r0,|L1.712|
-000230  f7fffffe          BL       GPIO_SetBits
-;;;269    			GPIO_ResetBits(GPIOB, GPIO_Pin_12);
-000234  f44f5180          MOV      r1,#0x1000
-000238  4823              LDR      r0,|L1.712|
-00023a  f7fffffe          BL       GPIO_ResetBits
-                  |L1.574|
-;;;270    		}	
-;;;271    	  TIM4->CCR1 = temp;
-00023e  4923              LDR      r1,|L1.716|
-000240  1f09              SUBS     r1,r1,#4
-000242  800c              STRH     r4,[r1,#0]
-;;;272    		
-;;;273    }
-000244  e8bd87f0          POP      {r4-r10,pc}
-;;;274    
+;;;226    					if(n >= med_num) {
+000154  4608              MOV      r0,r1
+000156  6800              LDR      r0,[r0,#0]  ; n
+000158  49be              LDR      r1,|L1.1108|
+00015a  6809              LDR      r1,[r1,#0]  ; med_num
+00015c  4288              CMP      r0,r1
+00015e  db09              BLT      |L1.372|
+;;;227    						m += cell_num;
+000160  48bd              LDR      r0,|L1.1112|
+000162  6800              LDR      r0,[r0,#0]  ; m
+000164  49bd              LDR      r1,|L1.1116|
+000166  6809              LDR      r1,[r1,#0]  ; cell_num
+000168  4408              ADD      r0,r0,r1
+00016a  49bb              LDR      r1,|L1.1112|
+00016c  6008              STR      r0,[r1,#0]  ; m
+;;;228    						n = 0;
+00016e  2000              MOVS     r0,#0
+000170  49b7              LDR      r1,|L1.1104|
+000172  6008              STR      r0,[r1,#0]  ; n
+                  |L1.372|
+;;;229    					}
+;;;230            }  
+;;;231    		  }			
+;;;232        }
+;;;233    		
+;;;234    		
+;;;235    		i = (long long)position_down.PositionCurrent / interval;
+000174  48ba              LDR      r0,|L1.1120|
+000176  e9d02102          LDRD     r2,r1,[r0,#8]
+00017a  4610              MOV      r0,r2
+00017c  f7fffffe          BL       __aeabi_d2lz
+000180  4605              MOV      r5,r0
+000182  48b8              LDR      r0,|L1.1124|
+000184  6802              LDR      r2,[r0,#0]  ; interval
+000186  17d3              ASRS     r3,r2,#31
+000188  4628              MOV      r0,r5
+00018a  f7fffffe          BL       __aeabi_ldivmod
+00018e  4607              MOV      r7,r0
+;;;236    		position_down.PositionCurrent -= i * interval;
+000190  49b4              LDR      r1,|L1.1124|
+000192  6809              LDR      r1,[r1,#0]  ; interval
+000194  fb07f001          MUL      r0,r7,r1
+000198  f7fffffe          BL       __aeabi_i2d
+00019c  4680              MOV      r8,r0
+00019e  48b0              LDR      r0,|L1.1120|
+0001a0  e9d05302          LDRD     r5,r3,[r0,#8]
+0001a4  462a              MOV      r2,r5
+0001a6  4640              MOV      r0,r8
+0001a8  f7fffffe          BL       __aeabi_drsub
+0001ac  4aac              LDR      r2,|L1.1120|
+0001ae  e9c20102          STRD     r0,r1,[r2,#8]
+;;;237    		m -= i;
+0001b2  48a9              LDR      r0,|L1.1112|
+0001b4  6800              LDR      r0,[r0,#0]  ; m
+0001b6  1bc0              SUBS     r0,r0,r7
+0001b8  49a7              LDR      r1,|L1.1112|
+0001ba  6008              STR      r0,[r1,#0]  ; m
+;;;238    		position_down.PositionExpect = m * interval;
+0001bc  6809              LDR      r1,[r1,#0]  ; m
+0001be  4aa9              LDR      r2,|L1.1124|
+0001c0  6812              LDR      r2,[r2,#0]  ; interval
+0001c2  fb01f002          MUL      r0,r1,r2
+0001c6  f7fffffe          BL       __aeabi_i2d
+0001ca  4aa5              LDR      r2,|L1.1120|
+0001cc  c203              STM      r2!,{r0,r1}
+;;;239    		DetectVelocity(&motor_down , TIM2);
+0001ce  f04f4180          MOV      r1,#0x40000000
+0001d2  48a5              LDR      r0,|L1.1128|
+0001d4  f7fffffe          BL       DetectVelocity
+;;;240    		CalcPositionPID(&position_down , &positionPID_down , &motor_down);
+0001d8  4aa3              LDR      r2,|L1.1128|
+0001da  49a4              LDR      r1,|L1.1132|
+0001dc  48a0              LDR      r0,|L1.1120|
+0001de  f7fffffe          BL       CalcPositionPID
+;;;241    		temp = CalcSpeedPID(&motor_down , &motorPID_down);	
+0001e2  49a3              LDR      r1,|L1.1136|
+0001e4  48a0              LDR      r0,|L1.1128|
+0001e6  f7fffffe          BL       CalcSpeedPID
+0001ea  4604              MOV      r4,r0
+;;;242    		if(temp>=0)
+0001ec  2c00              CMP      r4,#0
+0001ee  db0b              BLT      |L1.520|
+;;;243    		{
+;;;244    			temp = temp;
+0001f0  bf00              NOP      
+;;;245    			GPIO_SetBits(GPIOB, GPIO_Pin_10);
+0001f2  f44f6180          MOV      r1,#0x400
+0001f6  489f              LDR      r0,|L1.1140|
+0001f8  f7fffffe          BL       GPIO_SetBits
+;;;246    			GPIO_ResetBits(GPIOB, GPIO_Pin_11);
+0001fc  f44f6100          MOV      r1,#0x800
+000200  489c              LDR      r0,|L1.1140|
+000202  f7fffffe          BL       GPIO_ResetBits
+000206  e00a              B        |L1.542|
+                  |L1.520|
+;;;247    		}
+;;;248    	  else
+;;;249    		{
+;;;250    			temp = -temp;
+000208  4264              RSBS     r4,r4,#0
+;;;251    			GPIO_SetBits(GPIOB, GPIO_Pin_11);
+00020a  f44f6100          MOV      r1,#0x800
+00020e  4899              LDR      r0,|L1.1140|
+000210  f7fffffe          BL       GPIO_SetBits
+;;;252    			GPIO_ResetBits(GPIOB, GPIO_Pin_10);
+000214  f44f6180          MOV      r1,#0x400
+000218  4896              LDR      r0,|L1.1140|
+00021a  f7fffffe          BL       GPIO_ResetBits
+                  |L1.542|
+;;;253    		}
+;;;254    	  TIM4->CCR2 = temp;
+00021e  4996              LDR      r1,|L1.1144|
+000220  800c              STRH     r4,[r1,#0]
+;;;255    		
+;;;256    		
+;;;257    		/******************************* UP MOTOR VELOCITY CONTROL ***************************************/
+;;;258    	
+;;;259    		DetectVelocity(&motor_up , TIM3);
+000222  4996              LDR      r1,|L1.1148|
+000224  4881              LDR      r0,|L1.1068|
+000226  f7fffffe          BL       DetectVelocity
+;;;260    		temp = CalcSpeedPID(&motor_up , &motorPID_up);	
+00022a  4995              LDR      r1,|L1.1152|
+00022c  487f              LDR      r0,|L1.1068|
+00022e  f7fffffe          BL       CalcSpeedPID
+000232  4604              MOV      r4,r0
+;;;261    		if(temp>=0)
+000234  2c00              CMP      r4,#0
+000236  db0b              BLT      |L1.592|
+;;;262    		{
+;;;263    			temp = temp;
+000238  bf00              NOP      
+;;;264    			GPIO_SetBits(GPIOB, GPIO_Pin_12);
+00023a  f44f5180          MOV      r1,#0x1000
+00023e  488d              LDR      r0,|L1.1140|
+000240  f7fffffe          BL       GPIO_SetBits
+;;;265    			GPIO_ResetBits(GPIOB, GPIO_Pin_13);
+000244  f44f5100          MOV      r1,#0x2000
+000248  488a              LDR      r0,|L1.1140|
+00024a  f7fffffe          BL       GPIO_ResetBits
+00024e  e00a              B        |L1.614|
+                  |L1.592|
+;;;266    		}
+;;;267    	  else
+;;;268    		{
+;;;269    			temp = -temp;
+000250  4264              RSBS     r4,r4,#0
+;;;270    			GPIO_SetBits(GPIOB, GPIO_Pin_13);
+000252  f44f5100          MOV      r1,#0x2000
+000256  4887              LDR      r0,|L1.1140|
+000258  f7fffffe          BL       GPIO_SetBits
+;;;271    			GPIO_ResetBits(GPIOB, GPIO_Pin_12);
+00025c  f44f5180          MOV      r1,#0x1000
+000260  4884              LDR      r0,|L1.1140|
+000262  f7fffffe          BL       GPIO_ResetBits
+                  |L1.614|
+;;;272    		}	
+;;;273    	  TIM4->CCR1 = temp;
+000266  4984              LDR      r1,|L1.1144|
+000268  1f09              SUBS     r1,r1,#4
+00026a  800c              STRH     r4,[r1,#0]
+;;;274    		
+;;;275    }
+00026c  e8bd87f0          POP      {r4-r10,pc}
+;;;276    
                           ENDP
 
                   TIM4_IRQHandler PROC
-;;;275    void TIM4_IRQHandler(void)
-000248  4770              BX       lr
-;;;276    {
-;;;277    
-;;;278    	/*Group_4*/
+;;;277    void TIM4_IRQHandler(void)
+000270  4770              BX       lr
+;;;278    {
 ;;;279    
-;;;280    	
-;;;281    }
-;;;282    
+;;;280    	/*Group_4*/
+;;;281    
+;;;282    	
+;;;283    }
+;;;284    
                           ENDP
 
                   TIM3_IRQHandler PROC
-;;;283    void TIM3_IRQHandler(void)
-00024a  4770              BX       lr
-;;;284    {
-;;;285    
-;;;286    	/*Group_3*/
-;;;287    	
-;;;288    	
-;;;289    }
-;;;290    
+;;;285    void TIM3_IRQHandler(void)
+000272  4770              BX       lr
+;;;286    {
+;;;287    
+;;;288    	/*Group_3*/
+;;;289    	
+;;;290    	
+;;;291    }
+;;;292    
                           ENDP
 
                   TIM2_IRQHandler PROC
-;;;291    void TIM2_IRQHandler(void)
-00024c  4770              BX       lr
-;;;292    {
-;;;293    	/*Group_2*/
-;;;294    
-;;;295    
-;;;296    	/*Group_1*/
+;;;293    void TIM2_IRQHandler(void)
+000274  4770              BX       lr
+;;;294    {
+;;;295    	/*Group_2*/
+;;;296    
 ;;;297    
-;;;298    	
-;;;299    }
-;;;300    
+;;;298    	/*Group_1*/
+;;;299    
+;;;300    	
+;;;301    }
+;;;302    
                           ENDP
 
                   TIM1_CC_IRQHandler PROC
-;;;301    void TIM1_CC_IRQHandler(void)
-00024e  4770              BX       lr
-;;;302    {
-;;;303    }
-;;;304    
+;;;303    void TIM1_CC_IRQHandler(void)
+000276  4770              BX       lr
+;;;304    {
+;;;305    }
+;;;306    
                           ENDP
 
                   USART1_IRQHandler PROC
-;;;305    void USART1_IRQHandler(void)
-000250  b570              PUSH     {r4-r6,lr}
-;;;306    {
-;;;307    	  uint8_t Rx,temp;
-;;;308        Rx = USART_ReceiveData(USART1);
-000252  4821              LDR      r0,|L1.728|
-000254  f7fffffe          BL       USART_ReceiveData
-000258  b2c4              UXTB     r4,r0
-;;;309    	  temp = Rx;
-00025a  4625              MOV      r5,r4
-;;;310    	  Rx = (temp >> 4)*0x100 + (Rx & 0x0F);
-00025c  f004010f          AND      r1,r4,#0xf
-000260  1128              ASRS     r0,r5,#4
-000262  eb012000          ADD      r0,r1,r0,LSL #8
-000266  b2c4              UXTB     r4,r0
-;;;311    		motor_up.VelocityExpect = -Rx;
-000268  4260              RSBS     r0,r4,#0
-00026a  4909              LDR      r1,|L1.656|
-00026c  60c8              STR      r0,[r1,#0xc]  ; motor_up
-;;;312    	  USART_ClearITPendingBit(USART1,USART_IT_RXNE);
-00026e  f2405125          MOV      r1,#0x525
-000272  4819              LDR      r0,|L1.728|
-000274  f7fffffe          BL       USART_ClearITPendingBit
-;;;313    }
-000278  bd70              POP      {r4-r6,pc}
-;;;314    
+;;;307    void USART1_IRQHandler(void)
+000278  e92d41f0          PUSH     {r4-r8,lr}
+;;;308    {
+;;;309        int data;
+;;;310    		int ten, unit;
+;;;311    		uint8_t Rx;
+;;;312    	  static uint8_t Rx_count=0;
+;;;313        static RxIT_Flag_t  RxIT_Flag=RxIT_Flag_NoFrame;
+;;;314        static RxIT_Rcv_t RxIT_Rcv=RxIT_Rcv_NoData;
+;;;315        Rx=USART_ReceiveData(USART1);
+00027c  4881              LDR      r0,|L1.1156|
+00027e  f7fffffe          BL       USART_ReceiveData
+000282  b2c7              UXTB     r7,r0
+;;;316    	  USART_SendData(USART1,Rx);
+000284  4639              MOV      r1,r7
+000286  487f              LDR      r0,|L1.1156|
+000288  f7fffffe          BL       USART_SendData
+;;;317        switch(RxIT_Flag)
+00028c  487e              LDR      r0,|L1.1160|
+00028e  7800              LDRB     r0,[r0,#0]  ; RxIT_Flag
+000290  b120              CBZ      r0,|L1.668|
+000292  2801              CMP      r0,#1
+000294  d017              BEQ      |L1.710|
+000296  2802              CMP      r0,#2
+000298  d12d              BNE      |L1.758|
+00029a  e026              B        |L1.746|
+                  |L1.668|
+;;;318        {
+;;;319            case RxIT_Flag_NoFrame:
+;;;320            if(Rx == 0xEE)
+00029c  2fee              CMP      r7,#0xee
+00029e  d108              BNE      |L1.690|
+;;;321            {
+;;;322             RxIT_Flag=RxIT_Flag_Header; 
+0002a0  2001              MOVS     r0,#1
+0002a2  4979              LDR      r1,|L1.1160|
+0002a4  7008              STRB     r0,[r1,#0]
+;;;323             RxIT_Rcv = RxIT_Rcv_NoData;
+0002a6  2000              MOVS     r0,#0
+0002a8  4978              LDR      r1,|L1.1164|
+0002aa  7008              STRB     r0,[r1,#0]
+;;;324             Rx_count=0;
+0002ac  4978              LDR      r1,|L1.1168|
+0002ae  7008              STRB     r0,[r1,#0]
+0002b0  e008              B        |L1.708|
+                  |L1.690|
+;;;325            }else
+;;;326            {
+;;;327             RxIT_Rcv=RxIT_Rcv_NoData;
+0002b2  2000              MOVS     r0,#0
+0002b4  4975              LDR      r1,|L1.1164|
+0002b6  7008              STRB     r0,[r1,#0]
+;;;328             RxIT_Flag=RxIT_Flag_NoFrame;  
+0002b8  4973              LDR      r1,|L1.1160|
+0002ba  7008              STRB     r0,[r1,#0]
+;;;329             Rx_count=0; 
+0002bc  4974              LDR      r1,|L1.1168|
+0002be  7008              STRB     r0,[r1,#0]
+                  |L1.704|
+;;;330             return;
+;;;331            }
+;;;332            break;
+;;;333            
+;;;334           case RxIT_Flag_Header:
+;;;335           if(Rx == 0xAA)
+;;;336           {
+;;;337            RxIT_Flag=RxIT_Flag_Payload;
+;;;338            Rx_count=1;
+;;;339           }else
+;;;340            {
+;;;341               RxIT_Rcv = RxIT_Rcv_NoData;
+;;;342               RxIT_Flag=RxIT_Flag_NoFrame;
+;;;343               Rx_count=0;
+;;;344               return;
+;;;345            }
+;;;346            break;
+;;;347            
+;;;348           case RxIT_Flag_Payload:
+;;;349           Rx_count++;
+;;;350           break;
+;;;351            
+;;;352          default:
+;;;353          RxIT_Rcv = RxIT_Rcv_NoData;  
+;;;354          RxIT_Flag = RxIT_Flag_NoFrame;
+;;;355          Rx_count = 0;
+;;;356          return;
+;;;357          
+;;;358        }
+;;;359        RxBuffer[Rx_count]=Rx;
+;;;360        
+;;;361        if(Rx_count>=RxBufferSize-1)
+;;;362        {
+;;;363            if((RxBuffer[RxBufferSize-2]==0x00) && (RxBuffer[RxBufferSize-1]==0xBB) )
+;;;364            {										
+;;;365              RxIT_Rcv = RxIT_Rcv_Pending;
+;;;366              RxIT_Flag = RxIT_Flag_NoFrame;
+;;;367    		      Rx_count = 0;
+;;;368            }else
+;;;369                {
+;;;370                  RxIT_Rcv = RxIT_Rcv_NoData;
+;;;371                  RxIT_Flag = RxIT_Flag_NoFrame;
+;;;372        		      Rx_count = 0;
+;;;373    							motor_up.VelocityExpect = 0;
+;;;374    							interval = 0;
+;;;375                }
+;;;376            
+;;;377        }
+;;;378       
+;;;379       if(RxIT_Rcv == RxIT_Rcv_Pending)
+;;;380          {
+;;;381            med_num = RxBuffer[2];
+;;;382    				cell_num = RxBuffer[3];
+;;;383    				if(cell_num <= 2) {
+;;;384    					positionPID_down.Kp = 0.0150;
+;;;385    					positionPID_down.Ki = 0.0000001;
+;;;386    					positionPID_down.Kd = 0.5;
+;;;387    				} else if(cell_num == 3){
+;;;388    					positionPID_down.Kp = 0.0100;
+;;;389    					positionPID_down.Ki = 0.0000001;
+;;;390    					positionPID_down.Kd = 0.5;
+;;;391    				} else if(cell_num == 4){
+;;;392    					positionPID_down.Kp = 0.00650;
+;;;393    					positionPID_down.Ki = 0.0000001;
+;;;394    					positionPID_down.Kd = 0.5;
+;;;395    				} else if(cell_num > 4){
+;;;396    					positionPID_down.Kp = 0.00450;
+;;;397    					positionPID_down.Ki = 0.0000001;
+;;;398    					positionPID_down.Kd = 0.5;
+;;;399    				}
+;;;400    				
+;;;401    				
+;;;402    				unit = RxBuffer[5] & 0x0f;
+;;;403    				ten = (RxBuffer[5]>>4) & 0x0f;
+;;;404    				data = ten *10 + unit;
+;;;405    				
+;;;406    				unit = RxBuffer[6] & 0x0f;
+;;;407    				ten = (RxBuffer[6]>>4) & 0x0f;
+;;;408    				data = ten *10 + unit + data * 100;
+;;;409    				
+;;;410    				unit = RxBuffer[7] & 0x0f;
+;;;411    				ten = (RxBuffer[7]>>4) & 0x0f;
+;;;412    				data = ten *10 + unit + data * 100;
+;;;413    				
+;;;414    				if(0x00 == RxBuffer[4]) {
+;;;415    					interval = -data;
+;;;416    				} else if(0x01 == RxBuffer[4]) {
+;;;417    					interval = data;
+;;;418    				}
+;;;419    				
+;;;420    				//interval = 11810;
+;;;421    				unit = RxBuffer[9] & 0x0f;
+;;;422    				ten = (RxBuffer[9]>>4) & 0x0f;
+;;;423    				data = ten *10 + unit;
+;;;424    				if(0x00 == RxBuffer[8]) {
+;;;425    					motor_up.VelocityExpect = -data;
+;;;426    				} else if(0x01 == RxBuffer[8]) {
+;;;427    					motor_up.VelocityExpect = data;
+;;;428    				}
+;;;429    				RxIT_Rcv = RxIT_Rcv_NoData; 
+;;;430          }
+;;;431    			
+;;;432    
+;;;433    	USART_ClearITPendingBit(USART1,USART_IT_RXNE);
+;;;434    }
+0002c0  e8bd81f0          POP      {r4-r8,pc}
+                  |L1.708|
+0002c4  e01f              B        |L1.774|
+                  |L1.710|
+0002c6  2faa              CMP      r7,#0xaa              ;335
+0002c8  d106              BNE      |L1.728|
+0002ca  2002              MOVS     r0,#2                 ;337
+0002cc  496e              LDR      r1,|L1.1160|
+0002ce  7008              STRB     r0,[r1,#0]            ;337
+0002d0  2001              MOVS     r0,#1                 ;338
+0002d2  496f              LDR      r1,|L1.1168|
+0002d4  7008              STRB     r0,[r1,#0]            ;338
+0002d6  e007              B        |L1.744|
+                  |L1.728|
+0002d8  2000              MOVS     r0,#0                 ;341
+0002da  496c              LDR      r1,|L1.1164|
+0002dc  7008              STRB     r0,[r1,#0]            ;341
+0002de  496a              LDR      r1,|L1.1160|
+0002e0  7008              STRB     r0,[r1,#0]            ;342
+0002e2  496b              LDR      r1,|L1.1168|
+0002e4  7008              STRB     r0,[r1,#0]            ;343
+0002e6  e7eb              B        |L1.704|
+                  |L1.744|
+0002e8  e00d              B        |L1.774|
+                  |L1.746|
+0002ea  4869              LDR      r0,|L1.1168|
+0002ec  7800              LDRB     r0,[r0,#0]            ;349  ; Rx_count
+0002ee  1c40              ADDS     r0,r0,#1              ;349
+0002f0  4967              LDR      r1,|L1.1168|
+0002f2  7008              STRB     r0,[r1,#0]            ;349
+0002f4  e007              B        |L1.774|
+                  |L1.758|
+0002f6  2000              MOVS     r0,#0                 ;353
+0002f8  4964              LDR      r1,|L1.1164|
+0002fa  7008              STRB     r0,[r1,#0]            ;353
+0002fc  4962              LDR      r1,|L1.1160|
+0002fe  7008              STRB     r0,[r1,#0]            ;354
+000300  4963              LDR      r1,|L1.1168|
+000302  7008              STRB     r0,[r1,#0]            ;355
+000304  e7dc              B        |L1.704|
+                  |L1.774|
+000306  bf00              NOP                            ;332
+000308  4862              LDR      r0,|L1.1172|
+00030a  4961              LDR      r1,|L1.1168|
+00030c  7809              LDRB     r1,[r1,#0]            ;359  ; Rx_count
+00030e  5447              STRB     r7,[r0,r1]            ;359
+000310  485f              LDR      r0,|L1.1168|
+000312  7800              LDRB     r0,[r0,#0]            ;361  ; Rx_count
+000314  280b              CMP      r0,#0xb               ;361
+000316  db1a              BLT      |L1.846|
+000318  485e              LDR      r0,|L1.1172|
+00031a  7a80              LDRB     r0,[r0,#0xa]          ;363  ; RxBuffer
+00031c  b960              CBNZ     r0,|L1.824|
+00031e  485d              LDR      r0,|L1.1172|
+000320  7ac0              LDRB     r0,[r0,#0xb]          ;363  ; RxBuffer
+000322  28bb              CMP      r0,#0xbb              ;363
+000324  d108              BNE      |L1.824|
+000326  2001              MOVS     r0,#1                 ;365
+000328  4958              LDR      r1,|L1.1164|
+00032a  7008              STRB     r0,[r1,#0]            ;365
+00032c  2000              MOVS     r0,#0                 ;366
+00032e  4956              LDR      r1,|L1.1160|
+000330  7008              STRB     r0,[r1,#0]            ;366
+000332  4957              LDR      r1,|L1.1168|
+000334  7008              STRB     r0,[r1,#0]            ;367
+000336  e00a              B        |L1.846|
+                  |L1.824|
+000338  2000              MOVS     r0,#0                 ;370
+00033a  4954              LDR      r1,|L1.1164|
+00033c  7008              STRB     r0,[r1,#0]            ;370
+00033e  4952              LDR      r1,|L1.1160|
+000340  7008              STRB     r0,[r1,#0]            ;371
+000342  4953              LDR      r1,|L1.1168|
+000344  7008              STRB     r0,[r1,#0]            ;372
+000346  4939              LDR      r1,|L1.1068|
+000348  60c8              STR      r0,[r1,#0xc]          ;373  ; motor_up
+00034a  4946              LDR      r1,|L1.1124|
+00034c  6008              STR      r0,[r1,#0]            ;374  ; interval
+                  |L1.846|
+00034e  484f              LDR      r0,|L1.1164|
+000350  7800              LDRB     r0,[r0,#0]            ;379  ; RxIT_Rcv
+000352  2801              CMP      r0,#1                 ;379
+000354  d15e              BNE      |L1.1044|
+000356  484f              LDR      r0,|L1.1172|
+000358  7880              LDRB     r0,[r0,#2]            ;381  ; RxBuffer
+00035a  493e              LDR      r1,|L1.1108|
+00035c  6008              STR      r0,[r1,#0]            ;381  ; med_num
+00035e  484d              LDR      r0,|L1.1172|
+000360  78c0              LDRB     r0,[r0,#3]            ;382  ; RxBuffer
+000362  493e              LDR      r1,|L1.1116|
+000364  6008              STR      r0,[r1,#0]            ;382  ; cell_num
+000366  4608              MOV      r0,r1                 ;383
+000368  6800              LDR      r0,[r0,#0]            ;383  ; cell_num
+00036a  2802              CMP      r0,#2                 ;383
+00036c  dc08              BGT      |L1.896|
+00036e  484a              LDR      r0,|L1.1176|
+000370  493e              LDR      r1,|L1.1132|
+000372  6008              STR      r0,[r1,#0]            ;384  ; positionPID_down
+000374  4849              LDR      r0,|L1.1180|
+000376  6048              STR      r0,[r1,#4]            ;385  ; positionPID_down
+000378  f04f507c          MOV      r0,#0x3f000000        ;386
+00037c  6088              STR      r0,[r1,#8]            ;386  ; positionPID_down
+00037e  e025              B        |L1.972|
+                  |L1.896|
+000380  4836              LDR      r0,|L1.1116|
+000382  6800              LDR      r0,[r0,#0]            ;387  ; cell_num
+000384  2803              CMP      r0,#3                 ;387
+000386  d108              BNE      |L1.922|
+000388  4845              LDR      r0,|L1.1184|
+00038a  4938              LDR      r1,|L1.1132|
+00038c  6008              STR      r0,[r1,#0]            ;388  ; positionPID_down
+00038e  4843              LDR      r0,|L1.1180|
+000390  6048              STR      r0,[r1,#4]            ;389  ; positionPID_down
+000392  f04f507c          MOV      r0,#0x3f000000        ;390
+000396  6088              STR      r0,[r1,#8]            ;390  ; positionPID_down
+000398  e018              B        |L1.972|
+                  |L1.922|
+00039a  4830              LDR      r0,|L1.1116|
+00039c  6800              LDR      r0,[r0,#0]            ;391  ; cell_num
+00039e  2804              CMP      r0,#4                 ;391
+0003a0  d108              BNE      |L1.948|
+0003a2  4840              LDR      r0,|L1.1188|
+0003a4  4931              LDR      r1,|L1.1132|
+0003a6  6008              STR      r0,[r1,#0]            ;392  ; positionPID_down
+0003a8  483c              LDR      r0,|L1.1180|
+0003aa  6048              STR      r0,[r1,#4]            ;393  ; positionPID_down
+0003ac  f04f507c          MOV      r0,#0x3f000000        ;394
+0003b0  6088              STR      r0,[r1,#8]            ;394  ; positionPID_down
+0003b2  e00b              B        |L1.972|
+                  |L1.948|
+0003b4  4829              LDR      r0,|L1.1116|
+0003b6  6800              LDR      r0,[r0,#0]            ;395  ; cell_num
+0003b8  2804              CMP      r0,#4                 ;395
+0003ba  dd07              BLE      |L1.972|
+0003bc  483a              LDR      r0,|L1.1192|
+0003be  492b              LDR      r1,|L1.1132|
+0003c0  6008              STR      r0,[r1,#0]            ;396  ; positionPID_down
+0003c2  4836              LDR      r0,|L1.1180|
+0003c4  6048              STR      r0,[r1,#4]            ;397  ; positionPID_down
+0003c6  f04f507c          MOV      r0,#0x3f000000        ;398
+0003ca  6088              STR      r0,[r1,#8]            ;398  ; positionPID_down
+                  |L1.972|
+0003cc  4831              LDR      r0,|L1.1172|
+0003ce  7940              LDRB     r0,[r0,#5]            ;402  ; RxBuffer
+0003d0  f000060f          AND      r6,r0,#0xf            ;402
+0003d4  482f              LDR      r0,|L1.1172|
+0003d6  7940              LDRB     r0,[r0,#5]            ;403  ; RxBuffer
+0003d8  0905              LSRS     r5,r0,#4              ;403
+0003da  eb050085          ADD      r0,r5,r5,LSL #2       ;404
+0003de  eb060440          ADD      r4,r6,r0,LSL #1       ;404
+0003e2  482c              LDR      r0,|L1.1172|
+0003e4  7980              LDRB     r0,[r0,#6]            ;406  ; RxBuffer
+0003e6  f000060f          AND      r6,r0,#0xf            ;406
+0003ea  482a              LDR      r0,|L1.1172|
+0003ec  7980              LDRB     r0,[r0,#6]            ;407  ; RxBuffer
+0003ee  0905              LSRS     r5,r0,#4              ;407
+0003f0  eb050085          ADD      r0,r5,r5,LSL #2       ;408
+0003f4  eb060040          ADD      r0,r6,r0,LSL #1       ;408
+0003f8  eb0401c4          ADD      r1,r4,r4,LSL #3       ;408
+0003fc  eb011104          ADD      r1,r1,r4,LSL #4       ;408
+000400  eb000481          ADD      r4,r0,r1,LSL #2       ;408
+000404  4823              LDR      r0,|L1.1172|
+000406  79c0              LDRB     r0,[r0,#7]            ;410  ; RxBuffer
+000408  f000060f          AND      r6,r0,#0xf            ;410
+00040c  4821              LDR      r0,|L1.1172|
+00040e  79c0              LDRB     r0,[r0,#7]            ;411  ; RxBuffer
+000410  0905              LSRS     r5,r0,#4              ;411
+000412  e04b              B        |L1.1196|
+                  |L1.1044|
+000414  e07c              B        |L1.1296|
+000416  0000              DCW      0x0000
+                  |L1.1048|
+                          DCD      0x40011000
+                  |L1.1052|
+                          DCD      flag0
+                  |L1.1056|
+                          DCD      count_Up0
+                  |L1.1060|
+                          DCD      count_Down0
+                  |L1.1064|
+                          DCD      down_flag0
+                  |L1.1068|
+                          DCD      motor_up
+                  |L1.1072|
+                          DCD      flag1
+                  |L1.1076|
+                          DCD      count_Up1
+                  |L1.1080|
+                          DCD      count_Down1
+                  |L1.1084|
+                          DCD      down_flag1
+                  |L1.1088|
+                          DCD      flag
+                  |L1.1092|
+                          DCD      count_Up
+                  |L1.1096|
+                          DCD      count_Down
+                  |L1.1100|
+                          DCD      down_flag
+                  |L1.1104|
+                          DCD      n
+                  |L1.1108|
+                          DCD      med_num
+                  |L1.1112|
+                          DCD      m
+                  |L1.1116|
+                          DCD      cell_num
+                  |L1.1120|
+                          DCD      position_down
+                  |L1.1124|
+                          DCD      interval
+                  |L1.1128|
+                          DCD      motor_down
+                  |L1.1132|
+                          DCD      positionPID_down
+                  |L1.1136|
+                          DCD      motorPID_down
+                  |L1.1140|
+                          DCD      0x40010c00
+                  |L1.1144|
+                          DCD      0x40000838
+                  |L1.1148|
+                          DCD      0x40000400
+                  |L1.1152|
+                          DCD      motorPID_up
+                  |L1.1156|
+                          DCD      0x40013800
+                  |L1.1160|
+                          DCD      RxIT_Flag
+                  |L1.1164|
+                          DCD      RxIT_Rcv
+                  |L1.1168|
+                          DCD      Rx_count
+                  |L1.1172|
+                          DCD      RxBuffer
+                  |L1.1176|
+                          DCD      0x3c75c28f
+                  |L1.1180|
+                          DCD      0x33d6bf95
+                  |L1.1184|
+                          DCD      0x3c23d70a
+                  |L1.1188|
+                          DCD      0x3bd4fdf4
+                  |L1.1192|
+                          DCD      0x3b9374bc
+                  |L1.1196|
+0004ac  eb050085          ADD      r0,r5,r5,LSL #2       ;412
+0004b0  eb060040          ADD      r0,r6,r0,LSL #1       ;412
+0004b4  eb0401c4          ADD      r1,r4,r4,LSL #3       ;412
+0004b8  eb011104          ADD      r1,r1,r4,LSL #4       ;412
+0004bc  eb000481          ADD      r4,r0,r1,LSL #2       ;412
+0004c0  4817              LDR      r0,|L1.1312|
+0004c2  7900              LDRB     r0,[r0,#4]            ;414  ; RxBuffer
+0004c4  b918              CBNZ     r0,|L1.1230|
+0004c6  4260              RSBS     r0,r4,#0              ;415
+0004c8  4916              LDR      r1,|L1.1316|
+0004ca  6008              STR      r0,[r1,#0]            ;415  ; interval
+0004cc  e005              B        |L1.1242|
+                  |L1.1230|
+0004ce  4814              LDR      r0,|L1.1312|
+0004d0  7900              LDRB     r0,[r0,#4]            ;416  ; RxBuffer
+0004d2  2801              CMP      r0,#1                 ;416
+0004d4  d101              BNE      |L1.1242|
+0004d6  4813              LDR      r0,|L1.1316|
+0004d8  6004              STR      r4,[r0,#0]            ;417  ; interval
+                  |L1.1242|
+0004da  4811              LDR      r0,|L1.1312|
+0004dc  7a40              LDRB     r0,[r0,#9]            ;421  ; RxBuffer
+0004de  f000060f          AND      r6,r0,#0xf            ;421
+0004e2  480f              LDR      r0,|L1.1312|
+0004e4  7a40              LDRB     r0,[r0,#9]            ;422  ; RxBuffer
+0004e6  0905              LSRS     r5,r0,#4              ;422
+0004e8  eb050085          ADD      r0,r5,r5,LSL #2       ;423
+0004ec  eb060440          ADD      r4,r6,r0,LSL #1       ;423
+0004f0  480b              LDR      r0,|L1.1312|
+0004f2  7a00              LDRB     r0,[r0,#8]            ;424  ; RxBuffer
+0004f4  b918              CBNZ     r0,|L1.1278|
+0004f6  4260              RSBS     r0,r4,#0              ;425
+0004f8  490b              LDR      r1,|L1.1320|
+0004fa  60c8              STR      r0,[r1,#0xc]          ;425  ; motor_up
+0004fc  e005              B        |L1.1290|
+                  |L1.1278|
+0004fe  4808              LDR      r0,|L1.1312|
+000500  7a00              LDRB     r0,[r0,#8]            ;426  ; RxBuffer
+000502  2801              CMP      r0,#1                 ;426
+000504  d101              BNE      |L1.1290|
+000506  4808              LDR      r0,|L1.1320|
+000508  60c4              STR      r4,[r0,#0xc]          ;427  ; motor_up
+                  |L1.1290|
+00050a  2000              MOVS     r0,#0                 ;429
+00050c  4907              LDR      r1,|L1.1324|
+00050e  7008              STRB     r0,[r1,#0]            ;429
+                  |L1.1296|
+000510  f2405125          MOV      r1,#0x525             ;433
+000514  4806              LDR      r0,|L1.1328|
+000516  f7fffffe          BL       USART_ClearITPendingBit
+00051a  bf00              NOP      
+00051c  e6d0              B        |L1.704|
+;;;435    
                           ENDP
 
-00027a  0000              DCW      0x0000
-                  |L1.636|
-                          DCD      0x40011000
-                  |L1.640|
-                          DCD      flag0
-                  |L1.644|
-                          DCD      count_Up0
-                  |L1.648|
-                          DCD      count_Down0
-                  |L1.652|
-                          DCD      down_flag0
-                  |L1.656|
+00051e  0000              DCW      0x0000
+                  |L1.1312|
+                          DCD      RxBuffer
+                  |L1.1316|
+                          DCD      interval
+                  |L1.1320|
                           DCD      motor_up
-                  |L1.660|
-                          DCD      flag1
-                  |L1.664|
-                          DCD      count_Up1
-                  |L1.668|
-                          DCD      count_Down1
-                  |L1.672|
-                          DCD      down_flag1
-                  |L1.676|
-                          DCD      flag
-                  |L1.680|
-                          DCD      count_Up
-                  |L1.684|
-                          DCD      count_Down
-                  |L1.688|
-                          DCD      down_flag
-                  |L1.692|
-                          DCD      n
-                  |L1.696|
-                          DCD      position_down
-                  |L1.700|
-                          DCD      motor_down
-                  |L1.704|
-                          DCD      positionPID_down
-                  |L1.708|
-                          DCD      motorPID_down
-                  |L1.712|
-                          DCD      0x40010c00
-                  |L1.716|
-                          DCD      0x40000838
-                  |L1.720|
-                          DCD      0x40000400
-                  |L1.724|
-                          DCD      motorPID_up
-                  |L1.728|
+                  |L1.1324|
+                          DCD      RxIT_Rcv
+                  |L1.1328|
                           DCD      0x40013800
+
+                          AREA ||.data||, DATA, ALIGN=0
+
+                  Rx_count
+000000  00                DCB      0x00
+                  RxIT_Flag
+000001  00                DCB      0x00
+                  RxIT_Rcv
+000002  00                DCB      0x00

@@ -1,6 +1,6 @@
 Dependencies for Project 'template', Target 'template': (DO NOT MODIFY !)
-F (..\..\User\src\main.c)(0x545DDC6D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\main.o --list_dir "..\\list\\" --list --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
-I (..\..\User\inc\motion.h)(0x545DDC5B)
+F (..\..\User\src\main.c)(0x54904EC8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\main.o --list_dir "..\\list\\" --list --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+I (..\..\User\inc\motion.h)(0x549042E5)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x52FDD27E)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x52FDD27E)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x51EE6EE2)
@@ -34,7 +34,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x51EE6EDE)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
 I (..\..\User\inc\stm32_config.h)(0x545DD087)
 F (..\..\User\src\motion.c)(0x545CDF52)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\motion.o --list_dir "..\\list\\" --list --omf_browse ..\obj\motion.crf --depend ..\obj\motion.d)
-I (..\..\User\inc\motion.h)(0x545DDC5B)
+I (..\..\User\inc\motion.h)(0x549042E5)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x52FDD27E)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x52FDD27E)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x51EE6EE2)
@@ -65,7 +65,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x51EE6EDE)
-F (..\..\User\src\stm32_config.c)(0x545DDCC5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\stm32_config.o --list_dir "..\\list\\" --list --omf_browse ..\obj\stm32_config.crf --depend ..\obj\stm32_config.d)
+F (..\..\User\src\stm32_config.c)(0x545DDCE1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\stm32_config.o --list_dir "..\\list\\" --list --omf_browse ..\obj\stm32_config.crf --depend ..\obj\stm32_config.d)
 I (..\..\User\inc\stm32_config.h)(0x545DD087)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x51EE6EE2)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x51EE6EE0)
@@ -95,7 +95,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x51EE6EDE)
-F (..\..\User\src\stm32f10x_it.c)(0x545DDCB2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\stm32f10x_it.o --list_dir "..\\list\\" --list --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
+F (..\..\User\src\stm32f10x_it.c)(0x5490506C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\stm32f10x_it.o --list_dir "..\\list\\" --list --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (..\..\User\inc\stm32f10x_it.h)(0x5393FDC6)
 I (..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x51EE6EE2)
 I (..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x51EE6EE0)
@@ -125,7 +125,7 @@ I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x51EE6EDE)
 I (..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x51EE6EDE)
-I (..\..\User\inc\motion.h)(0x545DDC5B)
+I (..\..\User\inc\motion.h)(0x549042E5)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x52FDD27E)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x52FDD27E)
 F (..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c)(0x51EE6EDE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --asm --interleave --asm_dir "..\\list\\" -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Libraries\CMSIS\CM3\CoreSupport -I..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\User\inc-I "D:\Program Files\Keil_v5\ARM\RV31\INC"-I "D:\Program Files\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include"-I "D:\Program Files\Keil_v5\ARM\Inc\ST\STM32F10x"-DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o ..\obj\stm32f10x_exti.o --list_dir "..\\list\\" --list --omf_browse ..\obj\stm32f10x_exti.crf --depend ..\obj\stm32f10x_exti.d)

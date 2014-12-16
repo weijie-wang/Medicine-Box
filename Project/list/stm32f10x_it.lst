@@ -30851,6 +30851,8 @@ N#ifndef PI
 N#define PI 3.1415926
 N#endif
 N
+N#define RxBufferSize 12
+N
 N typedef struct motor
 N{
 N    int32_t EncoderPrevious;
@@ -30889,7 +30891,18 @@ N    float Differ;
 N    
 N}PIDPARA;		
 N		
+Ntypedef enum
+N{
+N	RxIT_Flag_NoFrame = 0,
+N	RxIT_Flag_Header,
+N	RxIT_Flag_Payload
+N} RxIT_Flag_t;
 N
+Ntypedef enum
+N{
+N	RxIT_Rcv_NoData = 0,
+N	RxIT_Rcv_Pending
+N} RxIT_Rcv_t;
 N
 N
 N
@@ -30897,16 +30910,23 @@ Nextern MOTOR motor_up , motor_down;
 Nextern PIDPARA motorPID_up , motorPID_down;
 Nextern POSITION position_down;
 Nextern PIDPARA positionPID_down;
-Nextern int32_t n;
+Nextern int32_t n, m;
 Nextern uint8_t flag , down_flag , count_Up , count_Down;
 Nextern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
 Nextern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
-N
+Nextern int interval;
+Nextern int data;
+Nextern uint8_t RxBuffer[];
+Nextern uint8_t RxRcv[];
+Nextern int med_num;
+Nextern int cell_num;
 N
 Nint DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);
 Nint32_t CalcSpeedPID(MOTOR* Motor,PIDPARA* MotorPID);
 Nint CalcPositionPID(POSITION *Position,PIDPARA *PositionPID,MOTOR* Motor);
-N   
+N
+N
+N
 N
 N#endif
 N
@@ -31034,7 +31054,7 @@ N  */
 Nvoid SysTick_Handler(void)
 N{
 N		int32_t temp ;
-N	  int interval , i;
+N	  int i;
 N
 N
 N		flag0 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
@@ -31092,7 +31112,6 @@ N					motor_up.VelocityExpect += 10;
 N        }  
 N		  }			
 N    }
-N 
 N		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
 N	
 N		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
@@ -31119,6 +31138,10 @@ N				if(down_flag == 0)
 N				{
 N					down_flag = 1;
 N					n++;
+N					if(n >= med_num) {
+N						m += cell_num;
+N						n = 0;
+N					}
 N        }  
 N		  }			
 N    }
@@ -31126,9 +31149,8 @@ N
 N		
 N		i = (long long)position_down.PositionCurrent / interval;
 N		position_down.PositionCurrent -= i * interval;
-N		n -= i;
-N		interval = 3850;
-N		position_down.PositionExpect = n * interval;
+N		m -= i;
+N		position_down.PositionExpect = m * interval;
 N		DetectVelocity(&motor_down , TIM2);
 X		DetectVelocity(&motor_down , ((TIM_TypeDef *) (((uint32_t)0x40000000) + 0x0000)));
 N		CalcPositionPID(&position_down , &positionPID_down , &motor_down);
@@ -31211,14 +31233,136 @@ N}
 N
 Nvoid USART1_IRQHandler(void)
 N{
-N	  uint8_t Rx,temp;
-N    Rx = USART_ReceiveData(USART1);
-X    Rx = USART_ReceiveData(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)));
-N	  temp = Rx;
-N	  Rx = (temp >> 4)*0x100 + (Rx & 0x0F);
-N		motor_up.VelocityExpect = -Rx;
-N	  USART_ClearITPendingBit(USART1,USART_IT_RXNE);
-X	  USART_ClearITPendingBit(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)),((uint16_t)0x0525));
+N    int data;
+N		int ten, unit;
+N		uint8_t Rx;
+N	  static uint8_t Rx_count=0;
+N    static RxIT_Flag_t  RxIT_Flag=RxIT_Flag_NoFrame;
+N    static RxIT_Rcv_t RxIT_Rcv=RxIT_Rcv_NoData;
+N    Rx=USART_ReceiveData(USART1);
+X    Rx=USART_ReceiveData(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)));
+N	  USART_SendData(USART1,Rx);
+X	  USART_SendData(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)),Rx);
+N    switch(RxIT_Flag)
+N    {
+N        case RxIT_Flag_NoFrame:
+N        if(Rx == 0xEE)
+N        {
+N         RxIT_Flag=RxIT_Flag_Header; 
+N         RxIT_Rcv = RxIT_Rcv_NoData;
+N         Rx_count=0;
+N        }else
+N        {
+N         RxIT_Rcv=RxIT_Rcv_NoData;
+N         RxIT_Flag=RxIT_Flag_NoFrame;  
+N         Rx_count=0; 
+N         return;
+N        }
+N        break;
+N        
+N       case RxIT_Flag_Header:
+N       if(Rx == 0xAA)
+N       {
+N        RxIT_Flag=RxIT_Flag_Payload;
+N        Rx_count=1;
+N       }else
+N        {
+N           RxIT_Rcv = RxIT_Rcv_NoData;
+N           RxIT_Flag=RxIT_Flag_NoFrame;
+N           Rx_count=0;
+N           return;
+N        }
+N        break;
+N        
+N       case RxIT_Flag_Payload:
+N       Rx_count++;
+N       break;
+N        
+N      default:
+N      RxIT_Rcv = RxIT_Rcv_NoData;  
+N      RxIT_Flag = RxIT_Flag_NoFrame;
+N      Rx_count = 0;
+N      return;
+N      
+N    }
+N    RxBuffer[Rx_count]=Rx;
+N    
+N    if(Rx_count>=RxBufferSize-1)
+X    if(Rx_count>=12-1)
+N    {
+N        if((RxBuffer[RxBufferSize-2]==0x00) && (RxBuffer[RxBufferSize-1]==0xBB) )
+X        if((RxBuffer[12-2]==0x00) && (RxBuffer[12-1]==0xBB) )
+N        {										
+N          RxIT_Rcv = RxIT_Rcv_Pending;
+N          RxIT_Flag = RxIT_Flag_NoFrame;
+N		      Rx_count = 0;
+N        }else
+N            {
+N              RxIT_Rcv = RxIT_Rcv_NoData;
+N              RxIT_Flag = RxIT_Flag_NoFrame;
+N    		      Rx_count = 0;
+N							motor_up.VelocityExpect = 0;
+N							interval = 0;
+N            }
+N        
+N    }
+N   
+N   if(RxIT_Rcv == RxIT_Rcv_Pending)
+N      {
+N        med_num = RxBuffer[2];
+N				cell_num = RxBuffer[3];
+N				if(cell_num <= 2) {
+N					positionPID_down.Kp = 0.0150;
+N					positionPID_down.Ki = 0.0000001;
+N					positionPID_down.Kd = 0.5;
+N				} else if(cell_num == 3){
+N					positionPID_down.Kp = 0.0100;
+N					positionPID_down.Ki = 0.0000001;
+N					positionPID_down.Kd = 0.5;
+N				} else if(cell_num == 4){
+N					positionPID_down.Kp = 0.00650;
+N					positionPID_down.Ki = 0.0000001;
+N					positionPID_down.Kd = 0.5;
+N				} else if(cell_num > 4){
+N					positionPID_down.Kp = 0.00450;
+N					positionPID_down.Ki = 0.0000001;
+N					positionPID_down.Kd = 0.5;
+N				}
+N				
+N				
+N				unit = RxBuffer[5] & 0x0f;
+N				ten = (RxBuffer[5]>>4) & 0x0f;
+N				data = ten *10 + unit;
+N				
+N				unit = RxBuffer[6] & 0x0f;
+N				ten = (RxBuffer[6]>>4) & 0x0f;
+N				data = ten *10 + unit + data * 100;
+N				
+N				unit = RxBuffer[7] & 0x0f;
+N				ten = (RxBuffer[7]>>4) & 0x0f;
+N				data = ten *10 + unit + data * 100;
+N				
+N				if(0x00 == RxBuffer[4]) {
+N					interval = -data;
+N				} else if(0x01 == RxBuffer[4]) {
+N					interval = data;
+N				}
+N				
+N				//interval = 11810;
+N				unit = RxBuffer[9] & 0x0f;
+N				ten = (RxBuffer[9]>>4) & 0x0f;
+N				data = ten *10 + unit;
+N				if(0x00 == RxBuffer[8]) {
+N					motor_up.VelocityExpect = -data;
+N				} else if(0x01 == RxBuffer[8]) {
+N					motor_up.VelocityExpect = data;
+N				}
+N				RxIT_Rcv = RxIT_Rcv_NoData; 
+N      }
+N			
+N
+N	USART_ClearITPendingBit(USART1,USART_IT_RXNE);
+X	USART_ClearITPendingBit(((USART_TypeDef *) ((((uint32_t)0x40000000) + 0x10000) + 0x3800)),((uint16_t)0x0525));
 N}
 N
 N/******************************************************************************/

@@ -30779,6 +30779,8 @@ N#ifndef PI
 N#define PI 3.1415926
 N#endif
 N
+N#define RxBufferSize 12
+N
 N typedef struct motor
 N{
 N    int32_t EncoderPrevious;
@@ -30817,7 +30819,18 @@ N    float Differ;
 N    
 N}PIDPARA;		
 N		
+Ntypedef enum
+N{
+N	RxIT_Flag_NoFrame = 0,
+N	RxIT_Flag_Header,
+N	RxIT_Flag_Payload
+N} RxIT_Flag_t;
 N
+Ntypedef enum
+N{
+N	RxIT_Rcv_NoData = 0,
+N	RxIT_Rcv_Pending
+N} RxIT_Rcv_t;
 N
 N
 N
@@ -30825,16 +30838,23 @@ Nextern MOTOR motor_up , motor_down;
 Nextern PIDPARA motorPID_up , motorPID_down;
 Nextern POSITION position_down;
 Nextern PIDPARA positionPID_down;
-Nextern int32_t n;
+Nextern int32_t n, m;
 Nextern uint8_t flag , down_flag , count_Up , count_Down;
 Nextern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
 Nextern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
-N
+Nextern int interval;
+Nextern int data;
+Nextern uint8_t RxBuffer[];
+Nextern uint8_t RxRcv[];
+Nextern int med_num;
+Nextern int cell_num;
 N
 Nint DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);
 Nint32_t CalcSpeedPID(MOTOR* Motor,PIDPARA* MotorPID);
 Nint CalcPositionPID(POSITION *Position,PIDPARA *PositionPID,MOTOR* Motor);
-N   
+N
+N
+N
 N
 N#endif
 N
@@ -31906,10 +31926,19 @@ NMOTOR motor_up , motor_down;
 NPIDPARA motorPID_up , motorPID_down;
 NPOSITION position_up , position_down;
 NPIDPARA positionPID_up , positionPID_down;
-Nint32_t n;
+Nint32_t n, m;
 Nuint8_t flag , down_flag , count_Up , count_Down;
 Nuint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
 Nuint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
+Nint interval; /* down motor position goal */
+Nuint8_t RxBuffer[RxBufferSize];
+Xuint8_t RxBuffer[12];
+Nuint8_t RxRcv[RxBufferSize];
+Xuint8_t RxRcv[12];
+Nint med_num = 1;
+Nint cell_num = 1;
+N
+N
 N
 Nint main()
 N{    
@@ -31940,11 +31969,11 @@ N		motorPID_down.Kp = 100;
 N		motorPID_down.Ki = 0.1;
 N		motorPID_down.Kd = 0;
 N		position_down.PositionCurrent = 0;
-N		positionPID_down.Kp = 0.015;
-N		positionPID_down.Ki = 0.000001;
-N		positionPID_down.Kd = 0;
+N		positionPID_down.Kp = 0.0150;
+N		positionPID_down.Ki = 0.0000001;
+N		positionPID_down.Kd = 0.5;
 N		
-N	
+N		interval = 11810;
 N	
 N	
 N	  RCC_Configuration();
@@ -31976,5 +32005,5 @@ N
 N
 N
 N
-W "..\..\User\src\main.c" 78 9 last line of file ends without a newline
+W "..\..\User\src\main.c" 85 9 last line of file ends without a newline
 N								

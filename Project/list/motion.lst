@@ -30790,6 +30790,8 @@ N#ifndef PI
 N#define PI 3.1415926
 N#endif
 N
+N#define RxBufferSize 12
+N
 N typedef struct motor
 N{
 N    int32_t EncoderPrevious;
@@ -30828,7 +30830,18 @@ N    float Differ;
 N    
 N}PIDPARA;		
 N		
+Ntypedef enum
+N{
+N	RxIT_Flag_NoFrame = 0,
+N	RxIT_Flag_Header,
+N	RxIT_Flag_Payload
+N} RxIT_Flag_t;
 N
+Ntypedef enum
+N{
+N	RxIT_Rcv_NoData = 0,
+N	RxIT_Rcv_Pending
+N} RxIT_Rcv_t;
 N
 N
 N
@@ -30836,16 +30849,23 @@ Nextern MOTOR motor_up , motor_down;
 Nextern PIDPARA motorPID_up , motorPID_down;
 Nextern POSITION position_down;
 Nextern PIDPARA positionPID_down;
-Nextern int32_t n;
+Nextern int32_t n, m;
 Nextern uint8_t flag , down_flag , count_Up , count_Down;
 Nextern uint8_t flag0 , down_flag0 , count_Up0 , count_Down0;
 Nextern uint8_t flag1 , down_flag1 , count_Up1 , count_Down1;
-N
+Nextern int interval;
+Nextern int data;
+Nextern uint8_t RxBuffer[];
+Nextern uint8_t RxRcv[];
+Nextern int med_num;
+Nextern int cell_num;
 N
 Nint DetectVelocity(MOTOR* Motor,TIM_TypeDef* TIMx);
 Nint32_t CalcSpeedPID(MOTOR* Motor,PIDPARA* MotorPID);
 Nint CalcPositionPID(POSITION *Position,PIDPARA *PositionPID,MOTOR* Motor);
-N   
+N
+N
+N
 N
 N#endif
 N

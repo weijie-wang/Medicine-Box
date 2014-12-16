@@ -142,7 +142,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 		int32_t temp ;
-	  int interval , i;
+	  int i;
 
 
 		flag0 = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
@@ -198,7 +198,6 @@ void SysTick_Handler(void)
         }  
 		  }			
     }
- 
 		/**********************************DOWN MOTOR POSITION CONTROL*********************************************/
 	
 		flag = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_6);
@@ -224,6 +223,10 @@ void SysTick_Handler(void)
 				{
 					down_flag = 1;
 					n++;
+					if(n >= med_num) {
+						m += cell_num;
+						n = 0;
+					}
         }  
 		  }			
     }
@@ -231,9 +234,8 @@ void SysTick_Handler(void)
 		
 		i = (long long)position_down.PositionCurrent / interval;
 		position_down.PositionCurrent -= i * interval;
-		n -= i;
-		interval = 3850;
-		position_down.PositionExpect = n * interval;
+		m -= i;
+		position_down.PositionExpect = m * interval;
 		DetectVelocity(&motor_down , TIM2);
 		CalcPositionPID(&position_down , &positionPID_down , &motor_down);
 		temp = CalcSpeedPID(&motor_down , &motorPID_down);	
@@ -304,12 +306,131 @@ void TIM1_CC_IRQHandler(void)
 
 void USART1_IRQHandler(void)
 {
-	  uint8_t Rx,temp;
-    Rx = USART_ReceiveData(USART1);
-	  temp = Rx;
-	  Rx = (temp >> 4)*0x100 + (Rx & 0x0F);
-		motor_up.VelocityExpect = -Rx;
-	  USART_ClearITPendingBit(USART1,USART_IT_RXNE);
+    int data;
+		int ten, unit;
+		uint8_t Rx;
+	  static uint8_t Rx_count=0;
+    static RxIT_Flag_t  RxIT_Flag=RxIT_Flag_NoFrame;
+    static RxIT_Rcv_t RxIT_Rcv=RxIT_Rcv_NoData;
+    Rx=USART_ReceiveData(USART1);
+	  USART_SendData(USART1,Rx);
+    switch(RxIT_Flag)
+    {
+        case RxIT_Flag_NoFrame:
+        if(Rx == 0xEE)
+        {
+         RxIT_Flag=RxIT_Flag_Header; 
+         RxIT_Rcv = RxIT_Rcv_NoData;
+         Rx_count=0;
+        }else
+        {
+         RxIT_Rcv=RxIT_Rcv_NoData;
+         RxIT_Flag=RxIT_Flag_NoFrame;  
+         Rx_count=0; 
+         return;
+        }
+        break;
+        
+       case RxIT_Flag_Header:
+       if(Rx == 0xAA)
+       {
+        RxIT_Flag=RxIT_Flag_Payload;
+        Rx_count=1;
+       }else
+        {
+           RxIT_Rcv = RxIT_Rcv_NoData;
+           RxIT_Flag=RxIT_Flag_NoFrame;
+           Rx_count=0;
+           return;
+        }
+        break;
+        
+       case RxIT_Flag_Payload:
+       Rx_count++;
+       break;
+        
+      default:
+      RxIT_Rcv = RxIT_Rcv_NoData;  
+      RxIT_Flag = RxIT_Flag_NoFrame;
+      Rx_count = 0;
+      return;
+      
+    }
+    RxBuffer[Rx_count]=Rx;
+    
+    if(Rx_count>=RxBufferSize-1)
+    {
+        if((RxBuffer[RxBufferSize-2]==0x00) && (RxBuffer[RxBufferSize-1]==0xBB) )
+        {										
+          RxIT_Rcv = RxIT_Rcv_Pending;
+          RxIT_Flag = RxIT_Flag_NoFrame;
+		      Rx_count = 0;
+        }else
+            {
+              RxIT_Rcv = RxIT_Rcv_NoData;
+              RxIT_Flag = RxIT_Flag_NoFrame;
+    		      Rx_count = 0;
+							motor_up.VelocityExpect = 0;
+							interval = 0;
+            }
+        
+    }
+   
+   if(RxIT_Rcv == RxIT_Rcv_Pending)
+      {
+        med_num = RxBuffer[2];
+				cell_num = RxBuffer[3];
+				if(cell_num <= 2) {
+					positionPID_down.Kp = 0.0150;
+					positionPID_down.Ki = 0.0000001;
+					positionPID_down.Kd = 0.5;
+				} else if(cell_num == 3){
+					positionPID_down.Kp = 0.0100;
+					positionPID_down.Ki = 0.0000001;
+					positionPID_down.Kd = 0.5;
+				} else if(cell_num == 4){
+					positionPID_down.Kp = 0.00650;
+					positionPID_down.Ki = 0.0000001;
+					positionPID_down.Kd = 0.5;
+				} else if(cell_num > 4){
+					positionPID_down.Kp = 0.00450;
+					positionPID_down.Ki = 0.0000001;
+					positionPID_down.Kd = 0.5;
+				}
+				
+				
+				unit = RxBuffer[5] & 0x0f;
+				ten = (RxBuffer[5]>>4) & 0x0f;
+				data = ten *10 + unit;
+				
+				unit = RxBuffer[6] & 0x0f;
+				ten = (RxBuffer[6]>>4) & 0x0f;
+				data = ten *10 + unit + data * 100;
+				
+				unit = RxBuffer[7] & 0x0f;
+				ten = (RxBuffer[7]>>4) & 0x0f;
+				data = ten *10 + unit + data * 100;
+				
+				if(0x00 == RxBuffer[4]) {
+					interval = -data;
+				} else if(0x01 == RxBuffer[4]) {
+					interval = data;
+				}
+				
+				//interval = 11810;
+				unit = RxBuffer[9] & 0x0f;
+				ten = (RxBuffer[9]>>4) & 0x0f;
+				data = ten *10 + unit;
+				if(0x00 == RxBuffer[8]) {
+					motor_up.VelocityExpect = -data;
+				} else if(0x01 == RxBuffer[8]) {
+					motor_up.VelocityExpect = data;
+				}
+				RxIT_Rcv = RxIT_Rcv_NoData; 
+      }
+			
+
+	USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 }
 
 /******************************************************************************/
